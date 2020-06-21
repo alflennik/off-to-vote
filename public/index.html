@@ -3,63 +3,126 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/7.15.3/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/7.15.3/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.15.3/firebase-database.js"></script>
-    <script defer src="/__/firebase/7.15.3/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/7.15.3/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
-
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Off To Vote</title>
   </head>
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
+    <header class="header">
+      <img src="off-to-vote.svg" alt="Off to Vote" />
+    </header>
+    <nav class="nav">
+      <a href="#add">Add your company / team</a>
+      <a href="#about">What's This?</a>
+    </nav>
+    <main class="main">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Team</th>
+              <th># of Employees Off</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="#add">Add your company</a></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><a href="#add">Add your company</a></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><a href="#add">Add your company</a></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><a href="#add">Add your company</a></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><a href="#add">Add your company</a></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <div modal-shade class="modal-shade" style="display: none">
+      <div class="modal">
+        <div modal-content modal-content-about style="display: none;">
+          <header class="modal-header">
+            <h2>What's This?</h2>
+            <div class="modal-close">
+              <a href="#close"><img src="times-solid.svg" /></a>
+            </div>
+          </header>
+          <main class="modal-main">
+            Has voting ever been more important than this year?<br/>
+            Give your people a chance to make a difference.<br/>
+            Give them the day off to vote.<br/>
+            Sign the pledge.<br/>
+          </main>
+        </div>
+        <div modal-content modal-content-add style="display: none;">
+          <header class="modal-header">
+            <h2>Add your company / team</h2>
+            <div class="modal-close">
+              <a href="#close"><img src="times-solid.svg" /></a>
+            </div>
+          </header>
+          <main class="modal-main">
+            <img style="border: 1px solid #eee" src="email.svg" alt="Email address is embedded in image to prevent scraping"/> 
+            <br>
+            Send us an email and be the first to add your team or company.
+          </main>
+        </div>
+      </div>
     </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+      const anchors = document.querySelectorAll('a')
+      anchors.forEach(anchor => {
+        anchor.addEventListener('click', () => {
+          const showModal = selector => {
+            document.querySelectorAll('[modal-content]').forEach(modalContent => {
+              modalContent.style.display = 'none'
+            })
+            
+            if (selector === false) {
+              document.querySelector('[modal-shade]').style.display = 'none'
+            } else {
+              document.querySelector('[modal-shade]').style.display = 'flex'
+              document.querySelector(selector).style.display = 'block'
+            }
+          }
 
-        try {
-          let app = firebase.app();
-          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
-          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
+          if (anchor.attributes.href.value === '#add') {
+            event.preventDefault()
+            showModal('[modal-content-add]')
+          } else if (anchor.attributes.href.value === '#about') {
+            event.preventDefault()
+            showModal('[modal-content-about]')
+          } else if (anchor.attributes.href.value === '#close') {
+            event.preventDefault()
+            showModal(false)
+          }
+        })
+      })
     </script>
   </body>
 </html>
