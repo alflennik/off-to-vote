@@ -1,0 +1,14 @@
+{
+  "name": "off-to-vote",
+  "version": "1.0.0",
+  "description": "List of companies and teams taking voting day off",
+  "main": "index.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev": "firebase start"
+  },
+  "dependencies": {
+    "firebase-tools": "^8.4.3"
+  }
+}
