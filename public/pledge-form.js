@@ -30,7 +30,7 @@
     event.preventDefault()
 
     const pledgeType = pledgeTypeField.value
-    const pledgeTeamName = pledgeTeamField.value
+    const teamName = pledgeTeamField.value
     const companyName = companyNameField.value
     const numberOfEmployees = numberOfEmployeesField.value
     const state = stateField.value
@@ -38,7 +38,7 @@
 
     let isValid = true
 
-    if (pledgeType === 'team' && !pledgeTeamName) {
+    if (pledgeType === 'team' && !teamName) {
       highlightField(pledgeTeamField)
       isValid = false
     } else {
@@ -80,5 +80,24 @@
     form.style.display = 'none'
     pledgeSubmissionMessage.style.display = 'inline-block'
     pledgeSubmissionMessage.textContent = "Submitting..."
+
+    fetch('/sign-pledge', {
+      method: 'POST',
+      body: JSON.stringify({
+        teamName,
+        companyName,
+        numberOfEmployees,
+        state,
+        submitterEmail: email,
+      })
+    })
+      .then(response => response.json())
+      .then(result => {
+        if (result.success) {
+          pledgeSubmissionMessage.textContent = "Success. Thank you!"
+        } else {
+          pledgeSubmissionMessage.textContent = "Error"
+        }
+      })
   })
 })()
