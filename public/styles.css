@@ -1,112 +1,165 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: system-ui;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
   font-size: 14px;
 }
+
+.cta-section {
+  padding: 5vh 5vw;
+}
 .header {
-  background-color: #3c3c88;
-  height: 50vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 5vh;
+  line-height: 19px;
 }
-.header img {
-  padding-top: 50px;
-  max-width: 90%;
+.header-logo {
+  display: inline-block;
+  color: rgb(35, 35, 160);
+  font-size: 19px;
+  font-weight: 900;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  margin: 0 10px 10px 0;
 }
-.nav {
-  background: #5a58ab;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
+.header-link {
+  color: rgb(35, 35, 160);
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 20px;
 }
-.nav a {
-  color: white;
+.header-link:last-child {
+  margin-right: 0;
+}
+@media (min-width: 768px) {
+  .header-logo {
+    font-size: 24px;
+  }
+  .header-link {
+    font-size: 19px;
+  }
+}
+
+.cta-text {
+  font-size: 4vw;
+  color: rgb(0, 0, 100);
+}
+.cta-text a {
+  color: rgb(0, 0, 100);
   text-decoration: none;
 }
-.nav a:not(:first-child) {
-  margin-left: 40px;
+.cta-section .cta-text span {
+  display: inline-block;
 }
+@media (max-width: 550px) {
+  .cta-section .cta-text {
+    font-size: 22px;
+  }
+}
+@media (min-width: 1200px) {
+  .cta-section .cta-text {
+    font-size: 48px;
+  }
+}
+
+.progress {
+  margin: 0 5vw 5vh;
+}
+.progress-number, .progress-label {
+  line-height: 10vw;
+  font-size: 9vw;
+  font-weight: 900;
+}
+.progress-number {
+  color: rgb(184, 0, 0);
+}
+.progress-label {
+  color: rgb(0, 0, 100);
+}
+/* .progress-goal {
+  font-size: 4.5vw;
+  font-weight: 900;
+  color: rgb(0, 0, 100);
+} */
 
 .table-wrap {
   overflow: scroll;
   width: 100%;
 }
-.main table {
+.table-section table {
   border-collapse: collapse;
   width: 90%;
   min-width: 500px;
-  margin: 30px 0 100px 5%;
+  margin: 0 0 5vh 5vw;
   text-align: left;
 }
-.main table a {
+.table-section table a {
   color: #09217d;
   text-decoration: none;
 }
-.main td, .main th {
+.table-section th {
+  font-weight: 500;
+  padding: 10px 20px;
+}
+.table-section td {
   padding: 20px;
 }
-.main thead td {
-}
-.main tbody td {
+.table-section tbody td {
   border-top: 1px solid gray;
 }
-.main tr:last-child td {
+.table-section tr:last-child td {
   border-bottom: 1px solid gray;
 }
 
-.modal-shade {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.pledge {
+  margin: 0 5vw 40vh;
 }
-.modal {
-  width: 50vw;
-  min-width: 300px;
-  background: white;
+.pledge-form {
+  line-height: 50px;
 }
-.modal-header {
-  background: #5a58ab;
-  display: flex;
+.pledge-form, .pledge-form input, .pledge-form select, .pledge-form button {
+  font-size: 20px;
 }
-
-.modal-close {
-  background: #dadada;
+.pledge-form input {
+  border-style: solid;
+  margin: 0 5px;
 }
-.modal-close a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 57px;
-  height: 57px;
+.pledge-number {
+  width: 90px;
 }
-.modal-close img {
-  width: 50%;
-  height: 50%;
+.pledge-state {
+  width: 150px;
 }
-.modal-close:hover {
-  background: #cacaca;
-}
-.modal-close:active {
-  background: #bababa;
+/* Hidden field to catch automated form submission. Since it's invisible, if it's submitted 
+a human didn't submit it. */
+.pledge-required {
+  position: absolute;
+  left: -50vw;
+  transform: translateX(-50vw);
 }
 
-.modal-header h2 {
-  font-size: 14px;
+.pledge-headline {
   margin: 0;
-  padding-top: 20px;
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  flex-grow: 1;
+  font-size: 4vw;
+  color: rgb(184, 0, 0)
 }
-.modal-main {
+.pledge-form {
+  margin: 5vh 0;
+}
+.pledge-field-highlighted {
+  box-shadow: 0px 0px 3px #ff0404;
+}
+
+.pledge-submission-message {
+  font-size: 30px;
+  color: #aaa;
+  border: 1px solid #ddd;
+  display: inline-block;
   padding: 20px;
+  margin: 20px 0;
 }

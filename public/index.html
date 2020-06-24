@@ -3,19 +3,37 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;900" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <title>Off To Vote</title>
   </head>
   <body>
-    <header class="header">
-      <img src="off-to-vote.svg" alt="Off to Vote" />
-    </header>
-    <nav class="nav">
-      <a href="#add">Add your company / team</a>
-      <a href="#about">What's This?</a>
-    </nav>
-    <main class="main">
+    <section class="cta-section" id="home">
+      <header class="header">
+        <a class="header-logo" href="#home">Off to Vote</a>
+        <div>
+          <a class="header-link" href="#honor-roll">Honor Roll</a>
+          <a class="header-link" href="#pledge">Sign the Pledge</a>
+        </div>
+      </header>
+      <div class="cta-text">
+        People care&nbsp;<span>about their country</span><br>
+        Give them the chance&nbsp;<span>to make a difference</span><br>
+        Give them the day&nbsp;<span>Off to Vote</span><br>
+        <a href="#pledge">Sign the pledge.</a>
+      </div>
+    </section>
+
+    <section class="progress" id="progress">
+      <div class="progress-number">
+        1,000,000
+      </div>
+      <div class="progress-label">
+        US Workers Off
+      </div>
+    </section>
+
+    <section class="table-section" id="honor-roll">
       <div class="table-wrap">
         <table>
           <thead>
@@ -28,31 +46,31 @@
           </thead>
           <tbody>
             <tr>
-              <td><a href="#add">Add your company</a></td>
+              <td><a href="#pledge">Add your company</a></td>
               <td></td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td><a href="#add">Add your company</a></td>
+              <td><a href="#pledge">Add your company</a></td>
               <td></td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td><a href="#add">Add your company</a></td>
+              <td><a href="#pledge">Add your company</a></td>
               <td></td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td><a href="#add">Add your company</a></td>
+              <td><a href="#pledge">Add your company</a></td>
               <td></td>
               <td></td>
               <td></td>
             </tr>
             <tr>
-              <td><a href="#add">Add your company</a></td>
+              <td><a href="#pledge">Add your company</a></td>
               <td></td>
               <td></td>
               <td></td>
@@ -60,69 +78,34 @@
           </tbody>
         </table>
       </div>
-    </main>
+    </section>
 
-    <div modal-shade class="modal-shade" style="display: none">
-      <div class="modal">
-        <div modal-content modal-content-about style="display: none;">
-          <header class="modal-header">
-            <h2>What's This?</h2>
-            <div class="modal-close">
-              <a href="#close"><img src="times-solid.svg" /></a>
-            </div>
-          </header>
-          <main class="modal-main">
-            Has voting ever been more important than this year?<br/>
-            Give your people a chance to make a difference.<br/>
-            Give them the day off to vote.<br/>
-            Sign the pledge.<br/>
-          </main>
-        </div>
-        <div modal-content modal-content-add style="display: none;">
-          <header class="modal-header">
-            <h2>Add your company / team</h2>
-            <div class="modal-close">
-              <a href="#close"><img src="times-solid.svg" /></a>
-            </div>
-          </header>
-          <main class="modal-main">
-            <img style="border: 1px solid #eee" src="email.svg" alt="Email address is embedded in image to prevent scraping"/> 
-            <br>
-            Send us an email and be the first to add your team or company.
-          </main>
-        </div>
-      </div>
-    </div>
+    <section class="pledge" id="pledge">
+      <h2 class="pledge-headline">Sign the Pledge</h2>
+      <form id="pledge-form" class="pledge-form">
+        My
+        <select id="pledge-type" class="pledge-type">
+          <option value="company" selected>company</option>
+          <option value="team">team</option>
+        </select>
+        ,
+        <span id="pledge-team-type" class="pledge-team-type" style="display: none">
+          <input id="pledge-team" class="pledge-team" type="text" placeholder="Product Team"> at  
+        </span>
+        <!-- Hidden with css, meant to catch automated submissions -->
+        <input id="pledge-required" class="pledge-required" type="text" placeholder="Hi">
+        <input id="pledge-company" class="pledge-company" type="text" placeholder="Acme Inc."/>
+        , is giving
+        <input id="pledge-number" class="pledge-number" type="number" placeholder="10"/>
+        employees election day off.
+        In the state of <input id="pledge-state" class="pledge-state" type="text" placeholder="NY (optional)">
+        <p>
+          <button id="pledge-submit" class="pledge-submit" type="submit">Submit my pledge</button>
+        </p>
+      </form>
+      <div id="pledge-submission-message" class="pledge-submission-message" style="display: none;"></div>
+    </section>
 
-    <script>
-      const anchors = document.querySelectorAll('a')
-      anchors.forEach(anchor => {
-        anchor.addEventListener('click', () => {
-          const showModal = selector => {
-            document.querySelectorAll('[modal-content]').forEach(modalContent => {
-              modalContent.style.display = 'none'
-            })
-            
-            if (selector === false) {
-              document.querySelector('[modal-shade]').style.display = 'none'
-            } else {
-              document.querySelector('[modal-shade]').style.display = 'flex'
-              document.querySelector(selector).style.display = 'block'
-            }
-          }
-
-          if (anchor.attributes.href.value === '#add') {
-            event.preventDefault()
-            showModal('[modal-content-add]')
-          } else if (anchor.attributes.href.value === '#about') {
-            event.preventDefault()
-            showModal('[modal-content-about]')
-          } else if (anchor.attributes.href.value === '#close') {
-            event.preventDefault()
-            showModal(false)
-          }
-        })
-      })
-    </script>
+    <script src="pledge-form.js"></script>
   </body>
 </html>
