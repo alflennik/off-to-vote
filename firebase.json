@@ -3,8 +3,8 @@
     "public": "public",
     "rewrites": [
       {
-        "source": "**",
-        "function": "serve"
+        "source": "/sign-pledge",
+        "function": "signPledge"
       }
     ]
   }
