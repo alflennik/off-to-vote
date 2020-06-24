@@ -7,6 +7,7 @@
   const companyNameField = document.querySelector('#pledge-company')
   const numberOfEmployeesField = document.querySelector('#pledge-number')
   const stateField = document.querySelector('#pledge-state')
+  const emailField = document.querySelector('#pledge-email')
   
 
   const highlightField = field => {
@@ -33,6 +34,7 @@
     const companyName = companyNameField.value
     const numberOfEmployees = numberOfEmployeesField.value
     const state = stateField.value
+    const email = emailField.value
 
     let isValid = true
 
@@ -62,6 +64,13 @@
       isValid = false
     } else {
       clearFieldHighlight(stateField)
+    }
+
+    if (!email || email.match(/.+@.+/) === null) {
+      highlightField(emailField)
+      isValid = false
+    } else {
+      clearFieldHighlight(emailField)
     }
 
     if (!isValid) {
