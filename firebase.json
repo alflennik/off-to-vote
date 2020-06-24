@@ -1,6 +1,11 @@
 {
   "hosting": {
     "public": "public",
-    "redirects": []
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "serve"
+      }
+    ]
   }
 }
