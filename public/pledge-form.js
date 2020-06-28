@@ -3,9 +3,9 @@
   const hiddenField = document.querySelector('#pledge-required')
   const pledgeSubmissionMessage = document.querySelector('#pledge-submission-message')
   const pledgeTypeField = document.querySelector('#pledge-type')
-  const teamTypeSection = document.querySelector('#pledge-team-type')
   const pledgeTeamField = document.querySelector('#pledge-team')
   const companyNameField = document.querySelector('#pledge-company')
+  const individualNameField = document.querySelector('#pledge-individual')
   const numberOfEmployeesField = document.querySelector('#pledge-number')
   const stateField = document.querySelector('#pledge-state')
   const emailField = document.querySelector('#pledge-email')
@@ -20,27 +20,44 @@
   }
 
   pledgeTypeField.addEventListener('change', () => {
-    if (pledgeTypeField.value === 'team') {
-      teamTypeSection.style.display = 'initial'
+    const show = (showSelector) => {
+      const hideSelector = '[company-pledge-shown], [team-pledge-shown], [individual-pledge-shown]'
+      document.querySelectorAll(hideSelector).forEach(element => {
+        element.style.display = 'none'
+      })
+      document.querySelectorAll(showSelector).forEach(element => {
+        element.style.display = 'initial'
+      })
+    }
+
+    if (pledgeTypeField.value === 'company') {
+      show('[company-pledge-shown]')
+    } else if (pledgeTypeField.value === 'team') {
+      show('[team-pledge-shown]')
     } else {
-      teamTypeSection.style.display = 'none'
+      show('[individual-pledge-shown]')
     }
   })
 
   form.addEventListener('submit', async event => {
     event.preventDefault()
 
-    const hiddenValue = hiddenField.value
     const pledgeType = pledgeTypeField.value
-    const teamName = pledgeTeamField.value
-    const companyName = companyNameField.value
-    const numberOfEmployees = Number(numberOfEmployeesField.value)
+    const isIndividualPledge = pledgeType === 'individual'
+    const isTeamPledge = pledgeType === 'team'
+
+    const hiddenValue = hiddenField.value
+    const teamName = isTeamPledge ? pledgeTeamField.value : null
+    const companyName = isIndividualPledge ? null : companyNameField.value
+    const individualName = isIndividualPledge ? individualNameField.value : null
+    const numberOfEmployees = isIndividualPledge ? 1 : Number(numberOfEmployeesField.value)
     const state = stateField.value
     const email = emailField.value
 
     let isValid = true
 
     if (hiddenValue) {
+      // Bots will fill this out
       isValid = false
     }
 
@@ -51,11 +68,18 @@
       clearFieldHighlight(pledgeTeamField)
     }
 
-    if (!companyName) {
+    if (!isIndividualPledge && !companyName) {
       highlightField(companyNameField)
       isValid = false
     } else {
       clearFieldHighlight(companyNameField)
+    }
+
+    if (isIndividualPledge && !individualName) {
+      highlightField(individualNameField)
+      isValid = false
+    } else {
+      clearFieldHighlight(individualNameField)
     }
 
     if (isNaN(numberOfEmployees) || numberOfEmployees <= 0) {
@@ -65,7 +89,7 @@
       clearFieldHighlight(numberOfEmployeesField)
     }
 
-    if (!(state === '' || state.length === 2)) {
+    if (!((state === '' && !isIndividualPledge) || state.length === 2)) {
       highlightField(stateField)
       isValid = false
     } else {
@@ -92,7 +116,8 @@
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         companyName,
         teamName,
-        numberOfEmployees: Number(numberOfEmployees),
+        individualName,
+        numberOfEmployees,
         state,
       })
 

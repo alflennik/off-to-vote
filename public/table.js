@@ -13,12 +13,20 @@
     let totalEmployees = 0
 
     snapshot.forEach(doc => {
-      const { companyName, teamName, numberOfEmployees, state } = doc.data()
+      const { companyName, teamName, individualName, numberOfEmployees, state } = doc.data()
+
+      let signed
+      if (teamName) {
+        signed = `${teamName} at ${companyName}`
+      } else if (companyName) {
+        signed = companyName
+      } else {
+        signed = individualName
+      }
 
       newTableBody += `
         <tr>
-          <td>${escapeHtml(companyName)}</td>
-          <td>${escapeHtml(teamName)}</td>
+          <td>${escapeHtml(signed)}</td>
           <td>${escapeHtml(numberOfEmployees)}</td>
           <td>${escapeHtml(state)}</td>
         </tr>

@@ -44,8 +44,7 @@
         <table>
           <thead>
             <tr>
-              <th>Company</th>
-              <th>Team</th>
+              <th>Signed</th>
               <th># of Employees Off</th>
               <th>State</th>
             </tr>
@@ -53,7 +52,6 @@
           <tbody id="table-body">
             <tr>
               <td><a href="#pledge">Add your company</a></td>
-              <td></td>
               <td></td>
               <td></td>
             </tr>
@@ -65,25 +63,47 @@
     <section class="pledge" id="pledge">
       <h2 class="pledge-headline">Sign the Pledge</h2>
       <form id="pledge-form" class="pledge-form">
-        My
-        <select id="pledge-type" class="pledge-type">
-          <option value="company" selected>company</option>
-          <option value="team">team</option>
-        </select>
-        ,
-        <span
-          id="pledge-team-type"
-          class="pledge-team-type"
-          style="display: none;"
-        >
-          <input
-            id="pledge-team"
-            class="pledge-team"
-            type="text"
-            placeholder="Product Team"
-          />
-          at
-        </span>
+        <p>
+          <span company-pledge-shown team-pledge-shown>
+            My
+          </span>
+          <span individual-pledge-shown style="display: none;">
+            As an
+          </span>
+          <select id="pledge-type" class="pledge-type">
+            <option value="company" selected>company</option>
+            <option value="team">team</option>
+            <option value="individual">individual</option>
+          </select>
+          <span company-pledge-shown team-pledge-shown>
+            <span team-pledge-shown style="display: none;">
+              <input
+                id="pledge-team"
+                class="pledge-team"
+                type="text"
+                placeholder="Product Team"
+              />
+              at
+            </span>
+            <input
+              id="pledge-company"
+              class="pledge-company"
+              type="text"
+              placeholder="Acme Inc."
+            />, is giving
+            <input
+              id="pledge-number"
+              class="pledge-number"
+              type="number"
+              placeholder="10"
+              pattern="\d*"
+            />
+            employees election day off.
+          </span>
+          <span individual-pledge-shown style="display: none;">
+            , I am taking election day off.
+          </span>
+        </p>
         <!-- Hidden with css, meant to catch crawlers automatically submitting any form they find -->
         <input
           id="pledge-required"
@@ -91,23 +111,13 @@
           type="text"
           placeholder="Hi"
         />
-        <input
-          id="pledge-company"
-          class="pledge-company"
-          type="text"
-          placeholder="Acme Inc."
-        />
-        , is giving
-        <input
-          id="pledge-number"
-          class="pledge-number"
-          type="number"
-          placeholder="10"
-          pattern="\d*"
-        />
-        employees election day off.
+        <p individual-pledge-shown style="display: none;">
+          Name (published)<input type="text" id="pledge-individual" placeholder="Derek Bernal" />
+        </p>
         <p>
-          State (optional)<input
+          State
+          <span company-pledge-shown team-pledge-shown>(optional)</span>
+          <input
             id="pledge-state"
             class="pledge-state"
             type="text"
