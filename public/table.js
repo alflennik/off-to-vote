@@ -29,14 +29,8 @@
 
     progressNumber.textContent = new Intl.NumberFormat('en-US').format(totalEmployees)
 
-    tableBody.innerHTML = `
-      <tr>
-        <td><a href="#pledge">Add your company</a></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      ${newTableBody}
-    `
+    if (newTableBody.length) {
+      tableBody.innerHTML = newTableBody
+    }
   })
 })()

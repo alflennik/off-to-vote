@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;900" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;900"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
     <title>Off To Vote: Sign the pledge</title>
-    <meta property="og:title" content="Off to Vote: Sign the pledge"/>
-    <meta property="og:image" content="https://offtovote.org/caleb-woods.jpg"/>
-    <meta 
-      property="og:description" 
-      content="Give your employees the chance to make a difference. Give them the day off to vote. Sign the pledge at offtovote.org."
+    <meta property="og:title" content="Off to Vote: Sign the pledge" />
+    <meta property="og:image" content="https://offtovote.org/caleb-woods.jpg" />
+    <meta
+      property="og:description"
+      content="Give your employees the day off to vote. Sign the pledge at offtovote.org."
     />
     <meta property="og:url" content="https://offtovote.org" />
     <meta name="twitter:card" content="summary" />
@@ -19,18 +22,11 @@
     <section class="cta-section" id="home">
       <header class="header">
         <a class="header-logo" href="#home">Off to Vote</a>
-        <div>
-          <a class="header-link" href="#honor-roll">Honor Roll</a>
-          <a class="header-link" href="#about">About</a>
-          <a class="header-link" href="#contact">Contact</a>
-          <a class="header-link" href="#pledge">Sign the Pledge</a>
-        </div>
       </header>
       <div class="cta-text">
-        People care&nbsp;<span>about their country</span><br>
-        Give them the chance&nbsp;<span>to make a difference</span><br>
-        Give them the day&nbsp;<span>Off to Vote</span><br>
-        <a href="#pledge">Sign the pledge.</a>
+        <h2>People care about their country.</h2>
+        <h2>Give them the day Off to Vote.</h2>
+        <h2><a href="#pledge">Sign the pledge.</a></h2>
       </div>
     </section>
 
@@ -66,47 +62,6 @@
       </div>
     </section>
 
-    <section class="about" id="about">
-      <h2 class="pledge-headline">About</h2>
-      <p>
-        Voting is the action verb of democracy. The right to cast a ballot was the dream of our 
-        founders. Generations of civil rights activists have fought and bled for it. And the brave 
-        men and women of our military put their lives on the line every day to defend it.
-      </p>
-      <p>
-        The vast majority of Americans agree that high turnout is important, especially in 
-        presidential elections. But in 2016, only 56% of the voting age public cast ballots. That 
-        puts America 
-        <a
-          target="_blank"
-          href="https://www.pewresearch.org/fact-tank/2018/05/21/u-s-voter-turnout-trails-most-developed-countries/"
-        >
-          26th out of 32 highly developed democracies
-        </a>—behind Mexico, the Czech Republic, and Estonia.
-      </p>
-      <p>
-        In 2014, two thirds of the registered voters who stayed home said that they didn’t have time
-        to vote. 
-        <a 
-          target="_blank"
-          href="https://www.people-press.org/2014/11/12/little-enthusiasm-familiar-divisions-after-the-gops-big-midterm-victory/"
-        >
-          35% of them
-        </a>
-        chalked it up to work or school conflicts. That's millions of voters who could not get time 
-        off to do their civic duty.
-      </p>
-      <p>
-        We can do better. This year, give your team the chance to make a difference. Give them the 
-        day Off to Vote. 
-      </p>
-      <p>
-        Sign the pledge.
-      </p>
-
-
-    </section>
-
     <section class="pledge" id="pledge">
       <h2 class="pledge-headline">Sign the Pledge</h2>
       <form id="pledge-form" class="pledge-form">
@@ -116,29 +71,111 @@
           <option value="team">team</option>
         </select>
         ,
-        <span id="pledge-team-type" class="pledge-team-type" style="display: none">
-          <input id="pledge-team" class="pledge-team" type="text" placeholder="Product Team"> at  
+        <span
+          id="pledge-team-type"
+          class="pledge-team-type"
+          style="display: none;"
+        >
+          <input
+            id="pledge-team"
+            class="pledge-team"
+            type="text"
+            placeholder="Product Team"
+          />
+          at
         </span>
         <!-- Hidden with css, meant to catch crawlers automatically submitting any form they find -->
-        <input id="pledge-required" class="pledge-required" type="text" placeholder="Hi">
-        <input id="pledge-company" class="pledge-company" type="text" placeholder="Acme Inc."/>
+        <input
+          id="pledge-required"
+          class="pledge-required"
+          type="text"
+          placeholder="Hi"
+        />
+        <input
+          id="pledge-company"
+          class="pledge-company"
+          type="text"
+          placeholder="Acme Inc."
+        />
         , is giving
-        <input id="pledge-number" class="pledge-number" type="number" placeholder="10"/>
+        <input
+          id="pledge-number"
+          class="pledge-number"
+          type="number"
+          placeholder="10"
+          pattern="\d*"
+        />
         employees election day off.
         <p>
-          State (optional)<input id="pledge-state" class="pledge-state" type="text" placeholder="NY">
+          State (optional)<input
+            id="pledge-state"
+            class="pledge-state"
+            type="text"
+            placeholder="NY"
+          />
         </p>
         <p>
-          Email (not published)<input id="pledge-email" class="pledge-email" type="email" placeholder="derek@example.com" />
+          Email (not published)<input
+            id="pledge-email"
+            class="pledge-email"
+            type="email"
+            placeholder="derek@example.com"
+          />
         </p>
         <p>
-          <button id="pledge-submit" class="pledge-submit" type="submit">Submit my pledge</button>
+          <button id="pledge-submit" class="pledge-submit" type="submit">
+            Submit my pledge
+          </button>
         </p>
       </form>
-      <div id="pledge-submission-message" class="pledge-submission-message" style="display: none;"></div>
+      <div
+        id="pledge-submission-message"
+        class="pledge-submission-message"
+        style="display: none;"
+      ></div>
     </section>
 
-    <div modal-shade class="modal-shade" style="display: none">
+    <section class="about" id="about">
+      <h2 class="about-headline">About</h2>
+      <p>
+        Voting is the action verb of democracy. The right to cast a ballot was
+        the dream of our founders. Generations of civil rights activists have
+        fought and bled for it. And the brave men and women of our military put
+        their lives on the line every day to defend it.
+      </p>
+      <p>
+        The vast majority of Americans agree that high turnout is important,
+        especially in presidential elections. But in 2016, only 56% of the
+        voting age public cast ballots. That puts America
+        <a
+          target="_blank"
+          href="https://www.pewresearch.org/fact-tank/2018/05/21/u-s-voter-turnout-trails-most-developed-countries/"
+        >
+          26th out of 32 highly developed democracies </a
+        >—behind Mexico, the Czech Republic, and Estonia.
+      </p>
+      <p>
+        In 2014, two thirds of the registered voters who stayed home said that
+        they didn’t have time to vote.
+        <a
+          target="_blank"
+          href="https://www.people-press.org/2014/11/12/little-enthusiasm-familiar-divisions-after-the-gops-big-midterm-victory/"
+        >
+          35% of them
+        </a>
+        chalked it up to work or school conflicts. That's millions of voters who
+        could not get time off to do their civic duty.
+      </p>
+      <p>
+        We can do better. This year, give your team the chance to make a
+        difference. Give them the day Off to Vote.
+      </p>
+      <p>
+        <a href="#pledge">Sign the pledge.</a>
+      </p>
+    </section>
+
+    <div modal-shade class="modal-shade" style="display: none;">
       <div class="modal">
         <div modal-content modal-content-contact style="display: none;">
           <header class="modal-header">
@@ -148,18 +185,31 @@
             </div>
           </header>
           <main class="modal-main">
-            <img 
-              style="border: 1px solid #eee" 
-              src="email.svg" 
+            <img
+              style="border: 1px solid #eee;"
+              src="email.svg"
               alt="Email address is embedded in image to prevent scraping"
             />
-            <br>
+            <br />
             Get in touch by email.
           </main>
         </div>
       </div>
     </div>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-171057213-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "UA-171057213-1");
+    </script>
 
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
@@ -173,7 +223,7 @@
         projectId: "off-to-vote-production",
         storageBucket: "off-to-vote-production.appspot.com",
         messagingSenderId: "354236859805",
-        appId: "1:354236859805:web:6aeb3fbd68a7ad0f99db74"
+        appId: "1:354236859805:web:6aeb3fbd68a7ad0f99db74",
       };
 
       firebase.initializeApp(firebaseConfig);

@@ -7,49 +7,32 @@ body {
 }
 
 .cta-section {
-  padding: 5vh 5vw;
+  padding: 8vh 5vw;
 }
 .header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 5vh;
+  margin-bottom: 8vh;
   line-height: 19px;
 }
 .header-logo {
   display: inline-block;
-  color: rgb(35, 35, 160);
-  font-size: 19px;
+  color: rgb(184, 0, 0);
+  font-size: 26px;
   font-weight: 900;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  margin: 0 20px 10px 0;
-}
-.header-link {
-  color: rgb(35, 35, 160);
-  text-decoration: none;
-  display: inline-block;
-  white-space: nowrap;
-  margin-right: 8px;
-}
-.header-link:last-child {
-  margin-right: 0;
-}
-@media (min-width: 768px) {
-  .header-logo {
-    font-size: 24px;
-    margin-right: 25px;
-  }
-  .header-link {
-    font-size: 19px;
-    margin-right: 20px;
-  }
 }
 
 .cta-text {
-  font-size: 4vw;
   color: rgb(0, 0, 100);
+}
+.cta-text h2 {
+  font-weight: 500;
+  font-size: 4vw;
+  margin: 0 0 12px 0;
 }
 .cta-text a {
   color: rgb(0, 0, 100);
@@ -59,7 +42,7 @@ body {
   display: inline-block;
 }
 @media (max-width: 550px) {
-  .cta-section .cta-text {
+  .cta-text h2 {
     font-size: 22px;
   }
 }
@@ -70,7 +53,7 @@ body {
 }
 
 .progress {
-  margin: 0 5vw 5vh;
+  margin: 0 5vw 8vh;
 }
 .progress-number,
 .progress-label {
@@ -84,11 +67,6 @@ body {
 .progress-label {
   color: rgb(0, 0, 100);
 }
-/* .progress-goal {
-  font-size: 4.5vw;
-  font-weight: 900;
-  color: rgb(0, 0, 100);
-} */
 
 .table-wrap {
   overflow: scroll;
@@ -120,24 +98,12 @@ body {
   border-bottom: 1px solid gray;
 }
 
-.about {
-  padding: 5vh 5vw 0;
-  font-size: 19px;
-  line-height: 1.8;
-  max-width: 900px;
-}
-.about a {
-  color: #09217d;
-  text-decoration: none;
-  border-bottom: 1px solid #09217d;
-}
-
 .pledge {
-  margin: 5vh 5vw 0;
-  min-height: 95vh;
+  padding: 8vh 5vw 0;
 }
 .pledge-form {
   line-height: 50px;
+  margin-top: 35px;
 }
 .pledge-form,
 .pledge-form input,
@@ -168,6 +134,7 @@ a human didn't submit it. */
 
 .pledge-headline,
 .about-headline {
+  text-decoration: underline;
   margin: 0;
   line-height: 1;
   color: rgb(184, 0, 0);
@@ -178,9 +145,6 @@ a human didn't submit it. */
   .about-headline {
     font-size: 30px;
   }
-}
-.pledge-form {
-  margin: 5vh 0;
 }
 .pledge-field-highlighted {
   box-shadow: 0px 0px 3px #ff0404;
@@ -193,6 +157,18 @@ a human didn't submit it. */
   display: inline-block;
   padding: 20px;
   margin: 20px 0;
+}
+
+.about {
+  padding: 8vh 5vw;
+  font-size: 19px;
+  line-height: 1.8;
+  max-width: 900px;
+}
+.about a {
+  color: #09217d;
+  text-decoration: none;
+  border-bottom: 1px solid #09217d;
 }
 
 .modal-shade {
