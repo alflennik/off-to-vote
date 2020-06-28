@@ -13,6 +13,8 @@
         <a class="header-logo" href="#home">Off to Vote</a>
         <div>
           <a class="header-link" href="#honor-roll">Honor Roll</a>
+          <a class="header-link" href="#about">About</a>
+          <a class="header-link" href="#contact">Contact</a>
           <a class="header-link" href="#pledge">Sign the Pledge</a>
         </div>
       </header>
@@ -56,6 +58,47 @@
       </div>
     </section>
 
+    <section class="about" id="about">
+      <h2 class="pledge-headline">About</h2>
+      <p>
+        Voting is the action verb of democracy. The right to cast a ballot was the dream of our 
+        founders. Generations of civil rights activists have fought and bled for it. And the brave 
+        men and women of our military put their lives on the line every day to defend it.
+      </p>
+      <p>
+        The vast majority of Americans agree that high turnout is important, especially in 
+        presidential elections. But in 2016, only 56% of the voting age public cast ballots. That 
+        puts America 
+        <a
+          target="_blank"
+          href="https://www.pewresearch.org/fact-tank/2018/05/21/u-s-voter-turnout-trails-most-developed-countries/"
+        >
+          26th out of 32 highly developed democracies
+        </a>—behind Mexico, the Czech Republic, and Estonia.
+      </p>
+      <p>
+        In 2014, two thirds of the registered voters who stayed home said that they didn’t have time
+        to vote. 
+        <a 
+          target="_blank"
+          href="https://www.people-press.org/2014/11/12/little-enthusiasm-familiar-divisions-after-the-gops-big-midterm-victory/"
+        >
+          35% of them
+        </a>
+        chalked it up to work or school conflicts. That's millions of voters who could not get time 
+        off to do their civic duty.
+      </p>
+      <p>
+        We can do better. This year, give your team the chance to make a difference. Give them the 
+        day Off to Vote. 
+      </p>
+      <p>
+        Sign the pledge.
+      </p>
+
+
+    </section>
+
     <section class="pledge" id="pledge">
       <h2 class="pledge-headline">Sign the Pledge</h2>
       <form id="pledge-form" class="pledge-form">
@@ -87,6 +130,28 @@
       <div id="pledge-submission-message" class="pledge-submission-message" style="display: none;"></div>
     </section>
 
+    <div modal-shade class="modal-shade" style="display: none">
+      <div class="modal">
+        <div modal-content modal-content-contact style="display: none;">
+          <header class="modal-header">
+            <h2>Contact</h2>
+            <div class="modal-close">
+              <a href="#close"><img src="times-solid.svg" /></a>
+            </div>
+          </header>
+          <main class="modal-main">
+            <img 
+              style="border: 1px solid #eee" 
+              src="email.svg" 
+              alt="Email address is embedded in image to prevent scraping"
+            />
+            <br>
+            Get in touch by email.
+          </main>
+        </div>
+      </div>
+    </div>
+
 
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
@@ -108,6 +173,7 @@
       const db = firebase.firestore();
     </script>
 
+    <script src="modals.js"></script>
     <script src="table.js"></script>
     <script src="pledge-form.js"></script>
   </body>
