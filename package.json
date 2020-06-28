@@ -1,24 +1,14 @@
 {
   "name": "off-to-vote",
-  "engines": {
-    "node": "10"
-  },
   "version": "1.0.0",
   "description": "List of companies and teams taking voting day off",
   "main": "index.js",
-  "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "dev": "firebase serve",
     "deploy": "firebase deploy"
   },
-  "dependencies": {
-    "escape-html": "^1.0.3",
-    "firebase-admin": "^8.12.1",
-    "firebase-functions": "^3.7.0",
-    "nodemailer": "^6.4.10",
-    "uuid": "^8.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "firebase-tools": "^8.4.3"
   }
