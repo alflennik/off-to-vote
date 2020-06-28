@@ -4,5 +4,10 @@ service cloud.firestore {
     allow read;
     allow create;
     allow update, delete: if false;
+
+    match /privateCollection/privateDocument {
+      allow create;
+      allow read, update, delete: if false;
+    }
   }
 }

@@ -26,7 +26,7 @@
     }
   })
 
-  form.addEventListener('submit', event => {
+  form.addEventListener('submit', async event => {
     event.preventDefault()
 
     const pledgeType = pledgeTypeField.value
@@ -81,19 +81,22 @@
     pledgeSubmissionMessage.style.display = 'inline-block'
     pledgeSubmissionMessage.textContent = "Submitting..."
 
-    db.collection('pledges').add({
-      companyName,
-      teamName,
-      numberOfEmployees,
-      state,
-      submitterEmail: email,
-    })
-    .then(function(docRef) {
+    try {
+      const doc = await db.collection('pledges').add({
+        companyName,
+        teamName,
+        numberOfEmployees,
+        state,
+      })
+
+      await doc.collection('privateCollection').doc('privateDocument').set({
+        submitterEmail: email,
+      })
+
       pledgeSubmissionMessage.textContent = "Success. Thank you!"
-    })
-    .catch(function(error) {
+    } catch (error) {
       console.error(error)
       pledgeSubmissionMessage.textContent = "Error"
-    });
+    }
   })
 })()
