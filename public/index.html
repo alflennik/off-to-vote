@@ -111,6 +111,28 @@
       <div id="pledge-submission-message" class="pledge-submission-message" style="display: none;"></div>
     </section>
 
+
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBZqCO5WKD-rRdTAVT3JM-QiAWGSENnw4o",
+        authDomain: "off-to-vote-production.firebaseapp.com",
+        databaseURL: "https://off-to-vote-production.firebaseio.com",
+        projectId: "off-to-vote-production",
+        storageBucket: "off-to-vote-production.appspot.com",
+        messagingSenderId: "354236859805",
+        appId: "1:354236859805:web:6aeb3fbd68a7ad0f99db74"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+
+      const db = firebase.firestore();
+    </script>
+
+    <script src="table.js"></script>
     <script src="pledge-form.js"></script>
   </body>
 </html>

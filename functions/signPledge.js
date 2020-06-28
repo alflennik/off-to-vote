@@ -1,24 +1,22 @@
-var escape = require('escape-html');
-var nodemailer = require('nodemailer');
-const functions = require('firebase-functions');
+const escape = require('escape-html');
+const admin = require('firebase-admin');
+const { v4: uuid } = require('uuid')
 
-const signPledge = (req, res) => {
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'alexflenniken@gmail.com',
-      pass: functions.config().email.password
-    }
-  });
+admin.initializeApp();
 
+const db = admin.firestore();
+
+// TODO: delete email / password and lock up my gmail again
+
+const signPledge = async (req, res) => {
   let companyName, teamName, numberOfEmployees, state, submitterEmail
   try {
     body = JSON.parse(req.body)
-    companyName = body.companyName
-    teamName = body.teamName
-    numberOfEmployees = body.numberOfEmployees
-    state = body.state
-    submitterEmail = body.submitterEmail
+    companyName = escape(body.companyName.toString())
+    teamName = escape(body.teamName.toString())
+    numberOfEmployees = escape(body.numberOfEmployees.toString())
+    state = escape(body.state.toString())
+    submitterEmail = escape(body.submitterEmail.toString())
   
     if (
       !companyName || 
@@ -34,26 +32,17 @@ const signPledge = (req, res) => {
     return
   }
 
-  var mailOptions = {
-    from: 'alexflenniken@gmail.com',
-    to: 'alexflenniken@gmail.com',
-    subject: 'Off To Vote Pledges',
-    html: `
-      Company name: ${escape(companyName)}<br>
-      Team name: ${escape(teamName)}<br>
-      Number of Employees: ${escape(numberOfEmployees)}<br>
-      State: ${escape(state)}<br>
-      Submitter email: ${escape(submitterEmail)}
-    `
-  };
-  
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      throw error
-    } else {
-      res.json({ success: true });
-    }
+  const docRef = db.collection('pledges').doc(uuid());
+
+  await docRef.set({
+    companyName,
+    teamName,
+    numberOfEmployees,
+    state,
+    submitterEmail,
   });
+
+  res.send({ success: true })
 }
 
 module.exports = signPledge

@@ -81,23 +81,19 @@
     pledgeSubmissionMessage.style.display = 'inline-block'
     pledgeSubmissionMessage.textContent = "Submitting..."
 
-    fetch('/sign-pledge', {
-      method: 'POST',
-      body: JSON.stringify({
-        teamName,
-        companyName,
-        numberOfEmployees,
-        state,
-        submitterEmail: email,
-      })
+    db.collection('pledges').add({
+      companyName,
+      teamName,
+      numberOfEmployees,
+      state,
+      submitterEmail: email,
     })
-      .then(response => response.json())
-      .then(result => {
-        if (result.success) {
-          pledgeSubmissionMessage.textContent = "Success. Thank you!"
-        } else {
-          pledgeSubmissionMessage.textContent = "Error"
-        }
-      })
+    .then(function(docRef) {
+      pledgeSubmissionMessage.textContent = "Success. Thank you!"
+    })
+    .catch(function(error) {
+      console.error(error)
+      pledgeSubmissionMessage.textContent = "Error"
+    });
   })
 })()
