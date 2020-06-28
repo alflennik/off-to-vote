@@ -1,5 +1,6 @@
 (() => {
   const form = document.querySelector('#pledge-form')
+  const hiddenField = document.querySelector('#pledge-required')
   const pledgeSubmissionMessage = document.querySelector('#pledge-submission-message')
   const pledgeTypeField = document.querySelector('#pledge-type')
   const teamTypeSection = document.querySelector('#pledge-team-type')
@@ -29,6 +30,7 @@
   form.addEventListener('submit', async event => {
     event.preventDefault()
 
+    const hiddenValue = hiddenField.value
     const pledgeType = pledgeTypeField.value
     const teamName = pledgeTeamField.value
     const companyName = companyNameField.value
@@ -37,6 +39,10 @@
     const email = emailField.value
 
     let isValid = true
+
+    if (hiddenValue) {
+      isValid = false
+    }
 
     if (pledgeType === 'team' && !teamName) {
       highlightField(pledgeTeamField)
