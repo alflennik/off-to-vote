@@ -114,13 +114,6 @@ body {
 .pledge-form input {
   margin: 0 5px;
 }
-.pledge-type {
-  display: inline-block;
-}
-.pledge-type-inner {
-  display: flex;
-  flex-direction: column;
-}
 .pledge-number {
   width: 90px;
 }
