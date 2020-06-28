@@ -32,7 +32,7 @@
     const pledgeType = pledgeTypeField.value
     const teamName = pledgeTeamField.value
     const companyName = companyNameField.value
-    const numberOfEmployees = numberOfEmployeesField.value
+    const numberOfEmployees = Number(numberOfEmployeesField.value)
     const state = stateField.value
     const email = emailField.value
 
@@ -52,7 +52,7 @@
       clearFieldHighlight(companyNameField)
     }
 
-    if (numberOfEmployees === '' || numberOfEmployees === 0 || numberOfEmployees == null) {
+    if (isNaN(numberOfEmployees) || numberOfEmployees <= 0) {
       highlightField(numberOfEmployeesField)
       isValid = false
     } else {
@@ -83,9 +83,10 @@
 
     try {
       const doc = await db.collection('pledges').add({
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         companyName,
         teamName,
-        numberOfEmployees,
+        numberOfEmployees: Number(numberOfEmployees),
         state,
       })
 
