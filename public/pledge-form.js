@@ -107,7 +107,6 @@
       return
     }
 
-    form.style.display = 'none'
     showSubmittingModal()
 
     try {
@@ -131,10 +130,24 @@
         submitterEmail: email,
       })
 
-      throw new Error()
-
       await minimumDurationPromise
 
+      let shareQuote
+      if (individualName) {
+        shareQuote = 'I am Off to Vote.'
+      } else if (teamName) {
+        shareQuote = `${teamName} at ${companyName} is Off to Vote.`
+      } else {
+        shareQuote = `${companyName} is Off to Vote.`
+      }
+
+      form.style.display = 'none'
+      document.querySelector('#pledge-form-thank-you').style.display = 'block'
+      document.querySelector('#submitted-quote-text').textContent = shareQuote
+      document.querySelector('#submitted-tweet').setAttribute(
+        'href', 
+        `https://twitter.com/intent/tweet?text=${encodeURI(shareQuote)}%20https://offtovote.org`
+      )
       showSubmittedModal()
     } catch (error) {
       console.error(error)

@@ -11,13 +11,14 @@
     <link rel="icon" href="VOTE.svg" type="image/x-icon" />
     <title>Off To Vote: Sign the pledge</title>
     <meta property="og:title" content="Off to Vote: Sign the pledge" />
-    <meta property="og:image" content="https://offtovote.org/caleb-woods.jpg" />
     <meta
       property="og:description"
       content="Give your employees the day off to vote. Sign the pledge at offtovote.org."
     />
     <meta property="og:url" content="https://offtovote.org" />
     <meta name="twitter:card" content="summary" />
+    <meta property="twitter:image" content="caleb-woods.jpg" />
+    <meta property="twitter:image:alt" content="US Flag" />
   </head>
   <body>
     <section class="cta-section" id="home">
@@ -143,6 +144,7 @@
           </button>
         </p>
       </form>
+      <p id="pledge-form-thank-you" class="pledge-thank-you" style="display: none">Thank you!</p>
     </section>
 
     <section class="about" id="about">
@@ -207,23 +209,47 @@
           Get in touch by email.
         </main>
       </div>
-      <div modal modal-submitting class="submitting-modal" style="display: none;">
+      <div
+        modal
+        modal-submitting
+        class="submitting-modal"
+        style="display: none;"
+      >
         <img src="loader.svg" alt="Submitting..." />
       </div>
-      <div modal modal-submit-error class="submitting-modal" style="display: none;">
+      <div
+        modal
+        modal-submit-error
+        class="submitting-modal"
+        style="display: none;"
+      >
         Error
       </div>
       <div modal modal-submitted class="modal" style="display: none;">
         <header class="modal-header">
-          <h2>Thank You!</h2>
+          <h2>Thank You</h2>
           <div class="modal-close">
             <a href="#close"><img src="times-solid.svg" /></a>
           </div>
         </header>
-        <main class="modal-main">
-          <p>Thank you for signing the pledge.</p>
-          Twitter<br>
-          LinkedIn
+        <main class="modal-main submitted-main">
+          <p>You have signed the pledge!</p>
+          <div class="submitted-quote">
+            <img class="submitted-quote-image" src="quote-left-solid.svg" alt="Quote"/>
+            <div id="submitted-quote-text" class="submitted-quote-text">
+              My company is Off to Vote.
+            </div>
+          </div>
+          <p>
+            <a
+              id="submitted-tweet"
+              class="submitted-tweet"
+              target="_blank"
+              href="https://twitter.com/intent/tweet?text=My%20company%20is%20Off%20to%20Vote.%20https://offtovote.org"
+            >
+              Tweet
+            </a>
+          </p>
         </main>
       </div>
     </div>

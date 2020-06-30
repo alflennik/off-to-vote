@@ -150,13 +150,8 @@ a human didn't submit it. */
   box-shadow: 0px 0px 3px #ff0404;
 }
 
-.pledge-submission-message {
-  font-size: 30px;
-  color: #aaa;
-  border: 1px solid #ddd;
-  display: inline-block;
-  padding: 20px;
-  margin: 20px 0;
+.pledge-thank-you {
+  font-size: 19px;
 }
 
 .about {
@@ -242,4 +237,21 @@ a human didn't submit it. */
 }
 .submitting-modal img {
   display: block;
+}
+
+.submitted-quote-image {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+}
+.submitted-quote-text {
+  position: relative;
+  font-size: 24px;
+  padding: 46px 0 11px 19px;
+}
+.submitted-tweet {
+  text-decoration: none;
+  color: #55acee;
+  border: 2px solid #55acee;
+  padding: 5px;
 }
