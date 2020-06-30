@@ -171,6 +171,15 @@ a human didn't submit it. */
   border-bottom: 1px solid #09217d;
 }
 
+.footer {
+  padding: 10px 5vw;
+  background: #eee;
+}
+.footer a {
+  color: #333;
+  text-decoration: none;
+}
+
 .modal-shade {
   position: fixed;
   left: 0;
@@ -186,6 +195,8 @@ a human didn't submit it. */
   width: 50vw;
   min-width: 300px;
   background: white;
+  border-radius: 5px;
+  overflow: hidden;
 }
 .modal-header {
   background: #3d3de3;
@@ -222,4 +233,13 @@ a human didn't submit it. */
 }
 .modal-main {
   padding: 20px;
+}
+
+.submitting-modal {
+  background: white;
+  border-radius: 5px;
+  padding: 16px;
+}
+.submitting-modal img {
+  display: block;
 }

@@ -108,10 +108,16 @@
     }
 
     form.style.display = 'none'
-    pledgeSubmissionMessage.style.display = 'inline-block'
-    pledgeSubmissionMessage.textContent = "Submitting..."
+    showSubmittingModal()
 
     try {
+      const minimumDurationPromise = new Promise(resolve => {
+        // Make sure the signing interaction takes enough time to feel significant
+        window.setTimeout(() => {
+          resolve()
+        }, 1500)
+      })
+
       const doc = await db.collection('pledges').add({
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
         companyName,
@@ -125,10 +131,14 @@
         submitterEmail: email,
       })
 
-      pledgeSubmissionMessage.textContent = "Success. Thank you!"
+      throw new Error()
+
+      await minimumDurationPromise
+
+      showSubmittedModal()
     } catch (error) {
       console.error(error)
-      pledgeSubmissionMessage.textContent = "Error"
+      showSubmitErrorModal()
     }
   })
 })()

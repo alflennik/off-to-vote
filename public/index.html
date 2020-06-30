@@ -8,6 +8,7 @@
       rel="stylesheet"
     />
     <link href="styles.css" rel="stylesheet" />
+    <link rel="icon" href="VOTE.svg" type="image/x-icon" />
     <title>Off To Vote: Sign the pledge</title>
     <meta property="og:title" content="Off to Vote: Sign the pledge" />
     <meta property="og:image" content="https://offtovote.org/caleb-woods.jpg" />
@@ -112,7 +113,11 @@
           placeholder="Hi"
         />
         <p individual-pledge-shown style="display: none;">
-          Name (published)<input type="text" id="pledge-individual" placeholder="Derek Bernal" />
+          Name (published)<input
+            type="text"
+            id="pledge-individual"
+            placeholder="Derek Bernal"
+          />
         </p>
         <p>
           State
@@ -138,11 +143,6 @@
           </button>
         </p>
       </form>
-      <div
-        id="pledge-submission-message"
-        class="pledge-submission-message"
-        style="display: none;"
-      ></div>
     </section>
 
     <section class="about" id="about">
@@ -185,25 +185,46 @@
       </p>
     </section>
 
+    <footer class="footer">
+      <a href="#contact">Contact</a>
+    </footer>
+
     <div modal-shade class="modal-shade" style="display: none;">
-      <div class="modal">
-        <div modal-content modal-content-contact style="display: none;">
-          <header class="modal-header">
-            <h2>Contact</h2>
-            <div class="modal-close">
-              <a href="#close"><img src="times-solid.svg" /></a>
-            </div>
-          </header>
-          <main class="modal-main">
-            <img
-              style="border: 1px solid #eee;"
-              src="email.svg"
-              alt="Email address is embedded in image to prevent scraping"
-            />
-            <br />
-            Get in touch by email.
-          </main>
-        </div>
+      <div modal modal-contact class="modal" style="display: none;">
+        <header class="modal-header">
+          <h2>Contact</h2>
+          <div class="modal-close">
+            <a href="#close"><img src="times-solid.svg" /></a>
+          </div>
+        </header>
+        <main class="modal-main">
+          <img
+            style="border: 1px solid #eee;"
+            src="email.svg"
+            alt="Email address is embedded in image to prevent scraping"
+          />
+          <br />
+          Get in touch by email.
+        </main>
+      </div>
+      <div modal modal-submitting class="submitting-modal" style="display: none;">
+        <img src="loader.svg" alt="Submitting..." />
+      </div>
+      <div modal modal-submit-error class="submitting-modal" style="display: none;">
+        Error
+      </div>
+      <div modal modal-submitted class="modal" style="display: none;">
+        <header class="modal-header">
+          <h2>Thank You!</h2>
+          <div class="modal-close">
+            <a href="#close"><img src="times-solid.svg" /></a>
+          </div>
+        </header>
+        <main class="modal-main">
+          <p>Thank you for signing the pledge.</p>
+          Twitter<br>
+          LinkedIn
+        </main>
       </div>
     </div>
 
@@ -239,6 +260,14 @@
       firebase.initializeApp(firebaseConfig);
 
       const db = firebase.firestore();
+
+      // Enable development DB
+      if (location.hostname === "localhost") {
+        db.settings({
+          host: "localhost:5002",
+          ssl: false,
+        });
+      }
     </script>
 
     <script src="modals.js"></script>
