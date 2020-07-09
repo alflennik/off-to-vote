@@ -10,7 +10,6 @@
   const stateField = document.querySelector('#pledge-state')
   const emailField = document.querySelector('#pledge-email')
   
-
   const highlightField = field => {
     field.classList.add('pledge-field-highlighted')
   }
