@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&family=Poppins:wght@800"
       rel="stylesheet"
@@ -92,23 +92,23 @@
             type="text"
             placeholder="Hi"
           /> -->
-            <div class="pledge-row">
+            <label class="pledge-row">
               Name
               <input type="text" id="pledge-individual" />
-            </div>
-            <div class="pledge-row">
+            </label>
+            <label class="pledge-row">
               Email
               <input id="pledge-email" class="pledge-email" type="email" />
-            </div>
-            <div class="pledge-row">
+            </label>
+            <label class="pledge-row">
               Company
               <input id="pledge-company" class="pledge-company" type="text" />
-            </div>
-            <div class="pledge-row" team-pledge-shown restore-display="grid">
+            </label>
+            <label class="pledge-row" team-pledge-shown restore-display="grid">
               Team
               <input id="pledge-team" class="pledge-team" type="text" />
-            </div>
-            <div
+            </label>
+            <label
               class="pledge-row"
               team-pledge-shown
               company-pledge-shown
@@ -122,7 +122,7 @@
                 pattern="\d*"
                 min="1"
               />
-            </div>
+            </label>
             <button id="pledge-submit" class="pledge-submit" type="submit">
               Submit my Pledge
             </button>
@@ -161,7 +161,10 @@
             <tr>
               <td>Individual</td>
               <td>1</td>
-              <td>Alexander Lyall Flenniken</td>
+              <td>
+                Alexander Lyall Flenniken Sanchez Rodrigo Hernandez Marino
+                Lafourcade
+              </td>
               <td>Trans World Airlines</td>
               <td>Research and Development</td>
             </tr>
@@ -178,27 +181,18 @@
     </section>
 
     <footer class="footer">
-      <a href="#contact">Contact</a>
+      <div class="footer-content">
+        <a
+          target="_blank"
+          href="https://www.instagram.com/explore/tags/offtovote/"
+        >
+          <img src="instagram-brands.svg" width="40" height="40" />
+        </a>
+        <a href="mailto:offtovote@gmail.com">Contact</a>
+      </div>
     </footer>
 
     <div modal-shade class="modal-shade" style="display: none;">
-      <div modal modal-contact class="modal" style="display: none;">
-        <header class="modal-header">
-          <h2>Contact</h2>
-          <div class="modal-close">
-            <a href="#close"><img src="times-solid.svg" /></a>
-          </div>
-        </header>
-        <main class="modal-main">
-          <img
-            style="border: 1px solid #eee;"
-            src="email.svg"
-            alt="Email address is embedded in image to prevent scraping"
-          />
-          <br />
-          Get in touch by email.
-        </main>
-      </div>
       <div
         modal
         modal-submitting
