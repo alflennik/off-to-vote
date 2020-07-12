@@ -1,128 +1,117 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Libre Franklin", sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 19px;
+  --red: rgb(184, 0, 0);
+  --blue: rgb(0, 0, 100);
+  --vertical-padding: 5vw;
+  --horizontal-padding: 50px;
+  --max-width: 780px;
+}
+
+.progress {
+  padding: var(--horizontal-padding) var(--vertical-padding);
+  background: linear-gradient(144deg, rgb(255, 233, 233), transparent);
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.progress-number,
+.progress-logo {
+  color: rgb(184, 0, 0);
+}
+.progress-number {
+  font-size: 60px;
+  line-height: 1;
+}
+.progress-americans {
+  color: var(--blue);
+}
+.progress-logo {
+  display: inline-block;
+}
+.progress-label {
+  font-size: 44px;
+  line-height: 1;
+  /* background: rgb(184,0,0); */
+  display: inline-block;
 }
 
 .cta-section {
-  padding: 8vh 5vw;
+  padding: var(--horizontal-padding) var(--vertical-padding);
+  max-width: var(--max-width);
 }
-.header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 8vh;
-  line-height: 19px;
-}
-.header-logo {
-  display: inline-block;
-  color: rgb(184, 0, 0);
-  font-size: 26px;
-  font-weight: 900;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
 .cta-text {
-  color: rgb(0, 0, 100);
+  color: var(--blue);
 }
-.cta-text h2 {
-  font-weight: 500;
-  font-size: 4vw;
-  margin: 0 0 12px 0;
+.cta-text p {
+  font-size: 34px;
+  margin: 0 0 43px 0;
 }
 .cta-text a {
-  color: rgb(0, 0, 100);
+  color: white;
   text-decoration: none;
+  border-bottom: 2px solid rgb(184, 0, 0);
+  background: rgb(184, 0, 0);
 }
 .cta-section .cta-text span {
   display: inline-block;
 }
-@media (max-width: 550px) {
-  .cta-text h2 {
-    font-size: 22px;
-  }
-}
-@media (min-width: 1200px) {
-  .cta-section .cta-text {
-    font-size: 48px;
-  }
-}
 
-.progress {
-  margin: 0 5vw 8vh;
-}
-.progress-number,
-.progress-label {
-  line-height: 10vw;
-  font-size: 9vw;
-  font-weight: 900;
-}
-.progress-number {
-  color: rgb(184, 0, 0);
-}
-.progress-label {
-  color: rgb(0, 0, 100);
-}
-
-.table-wrap {
-  overflow: scroll;
-  width: 100%;
-}
-.table-section table {
-  border-collapse: collapse;
-  width: 90%;
-  min-width: 500px;
-  margin-left: 5vw;
-  text-align: left;
-}
-.table-section table a {
-  color: #09217d;
-  text-decoration: none;
-}
-.table-section th {
-  font-weight: 500;
-  padding: 10px 20px;
-  white-space: nowrap;
-}
-.table-section td {
-  padding: 20px;
-}
-.table-section tbody td {
-  border-top: 1px solid gray;
-}
-.table-section tr:last-child td {
-  border-bottom: 1px solid gray;
+.gap {
+  height: 0px;
+  /* margin-top: 100px; */
+  background: linear-gradient(144deg, rgb(255, 233, 233), transparent);
 }
 
 .pledge {
-  padding: 8vh 5vw 0;
+  padding: var(--horizontal-padding) var(--vertical-padding);
+  background: #f8f8f8;
+  color: var(--blue);
+}
+.pledge-content-wrap {
+  max-width: var(--max-width);
 }
 .pledge-form {
-  line-height: 50px;
-  margin-top: 35px;
+  line-height: 36px;
 }
 .pledge-form,
 .pledge-form input,
-.pledge-form select,
-.pledge-form button {
-  font-size: 20px;
+.pledge-form select {
+  font-size: 19px;
 }
-.pledge-form input {
+.pledge-pledge {
+  margin: 0 0 20px;
+}
+.pledge-type-radios {
+  display: inline-block;
+  /* border: 1px solid var(--blue); */
+  /* padding: 0 30px 0 10px; */
+  margin: 10px 0;
+}
+.pledge-form input[type="text"],
+.pledge-form input[type="number"],
+.pledge-form input[type="email"] {
+  all: unset;
   margin: 0 5px;
+  border-bottom: 1px solid var(--blue);
+  height: 25px;
+  font-size: 22px;
+  color: rgb(184, 0, 0);
+  padding: 2px 0 2px 5px;
 }
-.pledge-number {
-  width: 90px;
+.pledge-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 2px;
+  margin-bottom: 10px;
 }
-.pledge-state {
-  width: 90px;
-}
-.pledge-email {
-  width: 60vw;
-  max-width: 330px;
+.pledge-em {
+  font-style: normal;
+  color: rgb(184, 0, 0);
+  border-bottom: 1px solid rgb(184, 0, 0);
 }
 /* Hidden field to catch automated form submission. Since it's invisible, if it's submitted 
 a human didn't submit it. */
@@ -132,8 +121,25 @@ a human didn't submit it. */
   transform: translateX(-50vw);
 }
 
-.pledge-headline,
-.about-headline {
+.pledge-submit {
+  all: unset;
+  display: block;
+  border-bottom: 2px solid var(--red);
+  color: var(--red);
+  text-transform: uppercase;
+  padding: 0 2px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.25;
+  transition: all 100ms linear;
+  margin: 30px 0 5px 0;
+  font-size: 23px;
+}
+.pledge-submit:hover {
+  background: var(--red);
+  color: white;
+}
+.pledge-headline {
   text-decoration: underline;
   margin: 0;
   line-height: 1;
@@ -141,8 +147,7 @@ a human didn't submit it. */
   font-size: 4vw;
 }
 @media (max-width: 750px) {
-  .pledge-headline,
-  .about-headline {
+  .pledge-headline {
     font-size: 30px;
   }
 }
@@ -154,24 +159,48 @@ a human didn't submit it. */
   font-size: 19px;
 }
 
-.about {
-  padding: 8vh 5vw;
-  font-size: 19px;
-  line-height: 1.8;
-  max-width: 900px;
+.table-content-wrap {
+  width: 100%;
+  max-width: var(--max-width);
 }
-.about a {
+.table-section {
+  padding: var(--horizontal-padding) var(--vertical-padding);
+}
+.table-section table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 500px;
+  /* margin-left: var(--vertical-padding); */
+  text-align: left;
+}
+.table-section table a {
   color: #09217d;
   text-decoration: none;
-  border-bottom: 1px solid #09217d;
+}
+.table-section th {
+  font-weight: 500;
+  padding: 5px 20px 10px;
+  white-space: nowrap;
+  color: var(--blue);
+}
+.table-section td {
+  padding: 20px;
+  font-size: 14px;
+  color: var(--blue);
+}
+.table-section tbody td {
+  border-top: 1px solid gray;
+}
+.table-section tr:last-child td {
+  border-bottom: 1px solid gray;
 }
 
 .footer {
-  padding: 10px 5vw;
-  background: #eee;
+  padding: var(--horizontal-padding) var(--vertical-padding);
+  background: var(--blue);
 }
 .footer a {
-  color: #333;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -194,7 +223,7 @@ a human didn't submit it. */
   overflow: hidden;
 }
 .modal-header {
-  background: #3d3de3;
+  background: var(--blue);
   display: flex;
 }
 .modal-close {

@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;900"
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&family=Poppins:wght@800"
       rel="stylesheet"
     />
     <link href="styles.css" rel="stylesheet" />
@@ -21,176 +21,160 @@
     <meta property="twitter:image:alt" content="US Flag" />
   </head>
   <body>
-    <section class="cta-section" id="home">
-      <header class="header">
-        <a class="header-logo" href="#home">Off to Vote</a>
-      </header>
-      <div class="cta-text">
-        <h2>People care about their country.</h2>
-        <h2>Give them the day Off to Vote.</h2>
-        <h2><a href="#pledge">Sign the pledge.</a></h2>
+    <section class="progress" id="progress">
+      <div id="progress-number" class="progress-number">
+        <!-- ... -->
+        13
+      </div>
+      <div class="progress-label">
+        <span class="progress-americans">Americans</span>
+        <span class="progress-logo" href="#home">Off to Vote</span>
       </div>
     </section>
 
-    <section class="progress" id="progress">
-      <div id="progress-number" class="progress-number">
-        ...
+    <section class="cta-section" id="home">
+      <div class="cta-text">
+        <p>Voting is the action verb of democracy.</p>
+        <p>The right to cast a ballot was the dream of our founders.</p>
+        <p>
+          Generations of civil rights activists have fought and bled for it.
+        </p>
+        <p>
+          But American voter turnout is consistently low. One reason: no paid
+          time off.
+        </p>
+        <p>We can do better.</p>
+        <p>
+          This year, give your team the chance to make a difference. Give them
+          time Off to Vote.
+        </p>
+        <p><a href="#pledge">Sign the pledge.</a></p>
       </div>
-      <div class="progress-label">
-        US Workers Off
+    </section>
+    <section class="gap"></section>
+
+    <section class="pledge" id="pledge">
+      <div class="pledge-content-wrap">
+        <form id="pledge-form" class="pledge-form">
+          <div>
+            On behalf of
+          </div>
+          <div class="pledge-type-radios">
+            <label>
+              <input type="radio" name="pledge-type" value="team" checked />
+              My Team
+            </label>
+            <label>
+              <input type="radio" name="pledge-type" value="individual" />
+              Myself
+            </label>
+          </div>
+          <div class="pledge-pledge">
+            I plan to give
+            <em class="pledge-em" team-pledge-shown>my team</em>
+            <em class="pledge-em" company-pledge-shown style="display: none;">
+              my company
+            </em>
+            <em
+              class="pledge-em"
+              individual-pledge-shown
+              style="display: none;"
+            >
+              myself
+            </em>
+            time off to vote on November 3rd, 2020.
+          </div>
+          <div>
+            <!-- Hidden with css, meant to catch crawlers automatically submitting any form they find -->
+            <!-- <input
+            id="pledge-required"
+            class="pledge-required"
+            type="text"
+            placeholder="Hi"
+          /> -->
+            <div class="pledge-row">
+              Name
+              <input type="text" id="pledge-individual" />
+            </div>
+            <div class="pledge-row">
+              Email
+              <input id="pledge-email" class="pledge-email" type="email" />
+            </div>
+            <div class="pledge-row">
+              Company
+              <input id="pledge-company" class="pledge-company" type="text" />
+            </div>
+            <div class="pledge-row" team-pledge-shown restore-display="grid">
+              Team
+              <input id="pledge-team" class="pledge-team" type="text" />
+            </div>
+            <div
+              class="pledge-row"
+              team-pledge-shown
+              company-pledge-shown
+              restore-display="grid"
+            >
+              # Off to Vote
+              <input
+                id="pledge-number"
+                class="pledge-number"
+                type="number"
+                pattern="\d*"
+                min="1"
+              />
+            </div>
+            <button id="pledge-submit" class="pledge-submit" type="submit">
+              Submit my Pledge
+            </button>
+          </div>
+        </form>
+        <p
+          id="pledge-form-thank-you"
+          class="pledge-thank-you"
+          style="display: none;"
+        >
+          Thank you!
+        </p>
       </div>
     </section>
 
     <section class="table-section" id="honor-roll">
-      <div class="table-wrap">
+      <div class="table-content-wrap">
         <table>
           <thead>
             <tr>
-              <th>Signed</th>
-              <th># of Employees Off</th>
-              <th>State</th>
+              <th>Category</th>
+              <th>#</th>
+              <th>Name</th>
+              <th>Company</th>
+              <th>Team</th>
             </tr>
           </thead>
           <tbody id="table-body">
             <tr>
-              <td><a href="#pledge">Add your company</a></td>
-              <td></td>
-              <td></td>
+              <td>Team</td>
+              <td>6</td>
+              <td>Mark Christopher</td>
+              <td>Coppa</td>
+              <td>QA</td>
+            </tr>
+            <tr>
+              <td>Individual</td>
+              <td>1</td>
+              <td>Alexander Lyall Flenniken</td>
+              <td>Trans World Airlines</td>
+              <td>Research and Development</td>
+            </tr>
+            <tr>
+              <td>Team</td>
+              <td>6</td>
+              <td>Lu-Lu Fa</td>
+              <td>3M</td>
+              <td>QA</td>
             </tr>
           </tbody>
         </table>
       </div>
-    </section>
-
-    <section class="pledge" id="pledge">
-      <h2 class="pledge-headline">Sign the Pledge</h2>
-      <form id="pledge-form" class="pledge-form">
-        <p>
-          <span company-pledge-shown team-pledge-shown>
-            My
-          </span>
-          <span individual-pledge-shown style="display: none;">
-            As an
-          </span>
-          <select id="pledge-type" class="pledge-type">
-            <option value="company" selected>company</option>
-            <option value="team">team</option>
-            <option value="individual">individual</option>
-          </select>
-          <span company-pledge-shown team-pledge-shown>
-            <span team-pledge-shown style="display: none;">
-              <input
-                id="pledge-team"
-                class="pledge-team"
-                type="text"
-                placeholder="Product Team"
-              />
-              at
-            </span>
-            <input
-              id="pledge-company"
-              class="pledge-company"
-              type="text"
-              placeholder="Acme Inc."
-            />, is giving
-            <input
-              id="pledge-number"
-              class="pledge-number"
-              type="number"
-              placeholder="10"
-              pattern="\d*"
-            />
-            employees election day off.
-          </span>
-          <span individual-pledge-shown style="display: none;">
-            , I am taking election day off.
-          </span>
-        </p>
-        <!-- Hidden with css, meant to catch crawlers automatically submitting any form they find -->
-        <input
-          id="pledge-required"
-          class="pledge-required"
-          type="text"
-          placeholder="Hi"
-        />
-        <p individual-pledge-shown style="display: none;">
-          Name (published)<input
-            type="text"
-            id="pledge-individual"
-            placeholder="Derek Bernal"
-          />
-        </p>
-        <p>
-          State
-          <span company-pledge-shown team-pledge-shown>(optional)</span>
-          <input
-            id="pledge-state"
-            class="pledge-state"
-            type="text"
-            placeholder="NY"
-          />
-        </p>
-        <p>
-          Email (not published)<input
-            id="pledge-email"
-            class="pledge-email"
-            type="email"
-            placeholder="derek@example.com"
-          />
-        </p>
-        <p>
-          <button id="pledge-submit" class="pledge-submit" type="submit">
-            Submit my pledge
-          </button>
-        </p>
-      </form>
-      <p
-        id="pledge-form-thank-you"
-        class="pledge-thank-you"
-        style="display: none;"
-      >
-        Thank you!
-      </p>
-    </section>
-
-    <section class="about" id="about">
-      <h2 class="about-headline">About</h2>
-      <p>
-        Voting is the action verb of democracy. The right to cast a ballot was
-        the dream of our founders. Generations of civil rights activists have
-        fought and bled for it. And the brave men and women of our military put
-        their lives on the line every day to defend it.
-      </p>
-      <p>
-        The vast majority of Americans agree that high turnout is important,
-        especially in presidential elections. But in 2016, only 56% of the
-        voting age public cast ballots. That puts America
-        <a
-          target="_blank"
-          href="https://www.pewresearch.org/fact-tank/2018/05/21/u-s-voter-turnout-trails-most-developed-countries/"
-        >
-          26th out of 32 highly developed democracies </a
-        >—behind Mexico, the Czech Republic, and Estonia.
-      </p>
-      <p>
-        In 2014, two thirds of the registered voters who stayed home said that
-        they didn’t have time to vote.
-        <a
-          target="_blank"
-          href="https://www.people-press.org/2014/11/12/little-enthusiasm-familiar-divisions-after-the-gops-big-midterm-victory/"
-        >
-          35% of them
-        </a>
-        chalked it up to work or school conflicts. That's millions of voters who
-        could not get time off to do their civic duty.
-      </p>
-      <p>
-        We can do better. This year, give your team the chance to make a
-        difference. Give them the day Off to Vote.
-      </p>
-      <p>
-        <a href="#pledge">Sign the pledge.</a>
-      </p>
     </section>
 
     <footer class="footer">
@@ -307,7 +291,7 @@
     </script>
 
     <script src="modals.js"></script>
-    <script src="table.js"></script>
+    <!-- <script src="table.js"></script> -->
     <script src="pledge-form.js"></script>
   </body>
 </html>
