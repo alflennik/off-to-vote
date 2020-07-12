@@ -2,9 +2,9 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents/pledges/{pledgeID} {
     allow read;
-    allow create: if request.resource.data.numberOfEmployees > 0
+    allow create: if request.resource.data.count > 0
     allow update, delete: if false;
-
+    
     match /privateCollection/privateDocument {
       allow create;
       allow read, update, delete: if false;

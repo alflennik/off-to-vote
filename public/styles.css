@@ -104,13 +104,12 @@ body {
 .pledge-form input[type="number"],
 .pledge-form input[type="email"] {
   all: unset;
-  /* margin: 0 5px; */
   border-bottom: 1px solid var(--blue);
   line-height: 25px;
-  font-size: 22px;
   color: var(--red);
   -webkit-text-fill-color: var(--red);
   padding: 2px 0 2px 5px;
+  cursor: text;
 }
 .pledge-row {
   display: grid;
@@ -142,7 +141,8 @@ body {
 }
 /* Hidden field to catch automated form submission. Since it's invisible, if it's submitted 
 a human didn't submit it. */
-.pledge-required {
+/* weird selector is for overriding other styles */
+input.pledge-required.pledge-required {
   position: absolute;
   left: -50vw;
   transform: translateX(-50vw);
@@ -188,7 +188,7 @@ a human didn't submit it. */
   }
 }
 .pledge-field-highlighted {
-  box-shadow: 0px 0px 3px #ff0404;
+  box-shadow: 0px 0px 5px var(--red) !important;
 }
 
 .pledge-thank-you {
@@ -261,7 +261,7 @@ a human didn't submit it. */
 }
 @media (max-width: 767px) {
   .footer a {
-  font-size: 16px;
+    font-size: 16px;
   }
 }
 

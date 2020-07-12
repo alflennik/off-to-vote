@@ -1,16 +1,4 @@
 (() => {
-  const form = document.querySelector("#pledge-form");
-  const hiddenField = document.querySelector("#pledge-required");
-  const pledgeSubmissionMessage = document.querySelector(
-    "#pledge-submission-message"
-  );
-  const pledgeTeamField = document.querySelector("#pledge-team");
-  const companyNameField = document.querySelector("#pledge-company");
-  const individualNameField = document.querySelector("#pledge-individual");
-  const numberOfEmployeesField = document.querySelector("#pledge-number");
-  const stateField = document.querySelector("#pledge-state");
-  const emailField = document.querySelector("#pledge-email");
-
   const highlightField = (field) => {
     field.classList.add("pledge-field-highlighted");
   };
@@ -19,11 +7,37 @@
     field.classList.remove("pledge-field-highlighted");
   };
 
+  const fields = {
+    hidden: document.querySelector("#pledge-required"),
+    email: document.querySelector("#pledge-email"),
+    team: document.querySelector("#pledge-team"),
+    company: document.querySelector("#pledge-company"),
+    name: document.querySelector("#pledge-individual"),
+    count: document.querySelector("#pledge-number"),
+  };
+
+  const getValues = () => {
+    const category = document.querySelector('input[name="pledge-type"]:checked')
+      .value;
+
+    const isIndividual = category === "individual";
+    const isTeam = category === "team";
+
+    return {
+      category,
+      hidden: fields.hidden.value,
+      email: fields.email.value,
+      team: isTeam ? fields.team.value : null,
+      company: fields.company.value,
+      name: fields.name.value,
+      count: isIndividual ? 1 : Number(fields.count.value),
+    };
+  };
+
+  // Hide / show content with a "[team-pledge-shown]" etc. attribute based on the
+  // currently-selected category
   document.querySelectorAll('input[name="pledge-type"]').forEach((input) => {
     input.addEventListener("change", () => {
-      const value = document.querySelector('input[name="pledge-type"]:checked')
-        .value;
-
       const show = (showSelector) => {
         const hideSelector = [
           "[company-pledge-shown]",
@@ -34,15 +48,17 @@
         document.querySelectorAll(hideSelector).forEach((element) => {
           element.style.display = "none";
         });
+
         document.querySelectorAll(showSelector).forEach((element) => {
           const specialDisplay = element.getAttribute("restore-display");
           element.style.display = specialDisplay || "initial";
         });
       };
 
-      if (value === "company") {
+      const { category } = getValues();
+      if (category === "company") {
         show("[company-pledge-shown]");
-      } else if (value === "team") {
+      } else if (category === "team") {
         show("[team-pledge-shown]");
       } else {
         show("[individual-pledge-shown]");
@@ -50,72 +66,53 @@
     });
   });
 
+  const form = document.querySelector("#pledge-form");
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const pledgeType = pledgeTypeField.value;
-    const isIndividualPledge = pledgeType === "individual";
-    const isTeamPledge = pledgeType === "team";
-
-    const hiddenValue = hiddenField.value;
-    const teamName = isTeamPledge ? pledgeTeamField.value : null;
-    const companyName = isIndividualPledge ? null : companyNameField.value;
-    const individualName = isIndividualPledge
-      ? individualNameField.value
-      : null;
-    const numberOfEmployees = isIndividualPledge
-      ? 1
-      : Number(numberOfEmployeesField.value);
-    const state = stateField.value;
-    const email = emailField.value;
+    const { category, hidden, email, team, company, name, count } = getValues();
 
     let isValid = true;
 
-    if (hiddenValue) {
+    if (hidden) {
       // Bots will fill this out
       isValid = false;
     }
 
-    if (pledgeType === "team" && !teamName) {
-      highlightField(pledgeTeamField);
+    if (category === "team" && !team) {
+      highlightField(fields.team);
       isValid = false;
     } else {
-      clearFieldHighlight(pledgeTeamField);
+      clearFieldHighlight(fields.team);
     }
 
-    if (!isIndividualPledge && !companyName) {
-      highlightField(companyNameField);
+    if (!company) {
+      highlightField(fields.company);
       isValid = false;
     } else {
-      clearFieldHighlight(companyNameField);
+      clearFieldHighlight(fields.company);
     }
 
-    if (isIndividualPledge && !individualName) {
-      highlightField(individualNameField);
+    if (!name) {
+      highlightField(fields.name);
       isValid = false;
     } else {
-      clearFieldHighlight(individualNameField);
+      clearFieldHighlight(fields.name);
     }
 
-    if (isNaN(numberOfEmployees) || numberOfEmployees <= 0) {
-      highlightField(numberOfEmployeesField);
+    if (isNaN(count) || count <= 0) {
+      highlightField(fields.count);
       isValid = false;
     } else {
-      clearFieldHighlight(numberOfEmployeesField);
-    }
-
-    if (!((state === "" && !isIndividualPledge) || state.length === 2)) {
-      highlightField(stateField);
-      isValid = false;
-    } else {
-      clearFieldHighlight(stateField);
+      clearFieldHighlight(fields.count);
     }
 
     if (!email || email.match(/.+@.+/) === null) {
-      highlightField(emailField);
+      highlightField(fields.email);
       isValid = false;
     } else {
-      clearFieldHighlight(emailField);
+      clearFieldHighlight(fields.email);
     }
 
     if (!isValid) {
@@ -134,11 +131,10 @@
 
       const doc = await db.collection("pledges").add({
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        companyName,
-        teamName,
-        individualName,
-        numberOfEmployees,
-        state,
+        name,
+        company,
+        team,
+        count,
       });
 
       await doc.collection("privateCollection").doc("privateDocument").set({
@@ -148,12 +144,10 @@
       await minimumDurationPromise;
 
       let shareQuote;
-      if (individualName) {
-        shareQuote = "I am Off to Vote.";
-      } else if (teamName) {
-        shareQuote = `${teamName} at ${companyName} is Off to Vote.`;
+      if (!team) {
+        shareQuote = "I am off to vote.";
       } else {
-        shareQuote = `${companyName} is Off to Vote.`;
+        shareQuote = `${team} at ${company} is off to vote.`;
       }
 
       form.style.display = "none";
