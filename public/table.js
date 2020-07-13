@@ -26,7 +26,6 @@
         </tr>
       `;
 
-        console.log("count", count, doc.data());
         totalCount += count;
       });
 

@@ -146,21 +146,22 @@
 
       let shareQuote;
       if (category === "Individual") {
-        shareQuote = "I am off to vote.";
+        shareQuote =
+          "I will be off on Election Day. What about you? Sign the pledge: " +
+          "https://offtovote.org";
       } else {
-        shareQuote = `${team} at ${company} is off to vote.`;
+        shareQuote =
+          "I’m making sure my team has time off to vote on Election Day. How about you? " +
+          "Sign the pledge: https://offtovote.org";
       }
 
       form.style.display = "none";
       document.querySelector("#pledge-form-thank-you").style.display = "block";
-      document.querySelector("#submitted-quote-text").textContent = shareQuote;
       document
         .querySelector("#submitted-tweet")
         .setAttribute(
           "href",
-          `https://twitter.com/intent/tweet?text=${encodeURI(
-            shareQuote
-          )}%20https://offtovote.org`
+          `https://twitter.com/intent/tweet?text=${encodeURI(shareQuote)}`
         );
       showSubmittedModal();
     } catch (error) {

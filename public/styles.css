@@ -50,6 +50,9 @@ body {
   font-size: 34px;
   margin: 0 0 43px 0;
 }
+.cta-emphasized {
+  color: var(--red);
+}
 .cta-text a {
   color: white;
   text-decoration: none;
@@ -286,20 +289,20 @@ input.pledge-required.pledge-required {
 .modal-header {
   background: var(--blue);
   display: flex;
+  justify-content: flex-end;
 }
 .modal-close {
   background: #dadada;
-}
-.modal-close a {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 57px;
+  justify-content: flex-start;
+  width: 100%;
   height: 57px;
 }
 .modal-close img {
-  width: 50%;
-  height: 50%;
+  width: 25px;
+  height: 25px;
+  margin-left: 20px;
 }
 .modal-close:hover {
   background: #cacaca;
@@ -328,20 +331,23 @@ input.pledge-required.pledge-required {
 .submitting-modal img {
   display: block;
 }
-
-.submitted-quote-image {
-  position: absolute;
-  width: 75px;
-  height: 75px;
-}
-.submitted-quote-text {
-  position: relative;
-  font-size: 24px;
-  padding: 46px 0 11px 19px;
+.submitted-modal {
+  border-radius: 5px;
+  color: #2c2c2c;
 }
 .submitted-tweet {
   text-decoration: none;
   color: #55acee;
   border: 2px solid #55acee;
   padding: 5px;
+  display: inline-block;
+}
+.submitted-main p {
+  color: #434343;
+}
+.submitted-main p:first-of-type {
+  margin-top: 0;
+}
+.submitted-main p:last-of-type {
+  margin-bottom: 0;
 }
