@@ -8,20 +8,20 @@
   };
 
   const fields = {
-    hidden: document.querySelector("#pledge-required"),
-    email: document.querySelector("#pledge-email"),
-    team: document.querySelector("#pledge-team"),
-    company: document.querySelector("#pledge-company"),
-    name: document.querySelector("#pledge-individual"),
-    count: document.querySelector("#pledge-number"),
+    hidden: document.querySelector("#form-required"),
+    email: document.querySelector("#form-email"),
+    team: document.querySelector("#form-team"),
+    company: document.querySelector("#form-company"),
+    name: document.querySelector("#form-name"),
+    count: document.querySelector("#form-count"),
   };
 
   const getValues = () => {
-    const category = document.querySelector('input[name="pledge-type"]:checked')
+    const category = document.querySelector('input[name="category"]:checked')
       .value;
 
-    const isIndividual = category === "individual";
-    const isTeam = category === "team";
+    const isIndividual = category === "Individual";
+    const isTeam = category === "Team";
 
     return {
       category,
@@ -36,7 +36,7 @@
 
   // Hide / show content with a "[team-pledge-shown]" etc. attribute based on the
   // currently-selected category
-  document.querySelectorAll('input[name="pledge-type"]').forEach((input) => {
+  document.querySelectorAll('input[name="category"]').forEach((input) => {
     input.addEventListener("change", () => {
       const show = (showSelector) => {
         const hideSelector = [
@@ -58,7 +58,7 @@
       const { category } = getValues();
       if (category === "company") {
         show("[company-pledge-shown]");
-      } else if (category === "team") {
+      } else if (category === "Team") {
         show("[team-pledge-shown]");
       } else {
         show("[individual-pledge-shown]");
@@ -80,7 +80,7 @@
       isValid = false;
     }
 
-    if (category === "team" && !team) {
+    if (category === "Team" && !team) {
       highlightField(fields.team);
       isValid = false;
     } else {
@@ -131,6 +131,7 @@
 
       const doc = await db.collection("pledges").add({
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        category,
         name,
         company,
         team,
@@ -144,7 +145,7 @@
       await minimumDurationPromise;
 
       let shareQuote;
-      if (!team) {
+      if (category === "Individual") {
         shareQuote = "I am off to vote.";
       } else {
         shareQuote = `${team} at ${company} is off to vote.`;

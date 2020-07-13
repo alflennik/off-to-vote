@@ -170,7 +170,8 @@ input.pledge-required.pledge-required {
     margin-top: 42px;
   }
 }
-.pledge-submit:hover {
+.pledge-submit:hover,
+.pledge-submit:focus {
   background: var(--red);
   color: white;
   -webkit-text-fill-color: white;
@@ -277,10 +278,9 @@ input.pledge-required.pledge-required {
   align-items: center;
 }
 .modal {
-  width: 50vw;
-  min-width: 300px;
+  width: 80%;
+  max-width: 600px;
   background: white;
-  border-radius: 5px;
   overflow: hidden;
 }
 .modal-header {
