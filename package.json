@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "firebase emulators:start",
-    "deploy": "firebase deploy"
+    "deployStaging": "firebase use staging; firebase deploy",
+    "deployProduction": "firebase use production; firebase deploy"
   },
   "dependencies": {},
   "devDependencies": {

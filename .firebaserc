@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "off-to-vote-production"
+    "default": "off-to-vote-production",
+    "staging": "off-to-vote-staging"
   }
 }

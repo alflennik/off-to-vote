@@ -23,8 +23,7 @@
   <body>
     <section class="progress" id="progress">
       <div id="progress-number" class="progress-number">
-        <!-- ... -->
-        13
+        ...
       </div>
       <div class="progress-label">
         <span class="progress-americans">Americans</span>
@@ -242,7 +241,7 @@
 
     <script>
       // Your web app's Firebase configuration
-      var firebaseConfig = {
+      const productionConfig = {
         apiKey: "AIzaSyBZqCO5WKD-rRdTAVT3JM-QiAWGSENnw4o",
         authDomain: "off-to-vote-production.firebaseapp.com",
         databaseURL: "https://off-to-vote-production.firebaseio.com",
@@ -252,7 +251,21 @@
         appId: "1:354236859805:web:6aeb3fbd68a7ad0f99db74",
       };
 
-      firebase.initializeApp(firebaseConfig);
+      const stagingConfig = {
+        apiKey: "AIzaSyB6c9u7HkFsjGJMNBffBh9LX3gsEjlQxTw",
+        authDomain: "off-to-vote-staging.firebaseapp.com",
+        databaseURL: "https://off-to-vote-staging.firebaseio.com",
+        projectId: "off-to-vote-staging",
+        storageBucket: "off-to-vote-staging.appspot.com",
+        messagingSenderId: "929173105955",
+        appId: "1:929173105955:web:22173c236d3918414cb096",
+      };
+
+      if (location.hostname === "off-to-vote-staging.web.app") {
+        firebase.initializeApp(stagingConfig);
+      } else {
+        firebase.initializeApp(productionConfig);
+      }
 
       const db = firebase.firestore();
 
