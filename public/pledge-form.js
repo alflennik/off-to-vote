@@ -66,6 +66,20 @@
     });
   });
 
+  // Analytics tracking
+
+  Object.values(fields).forEach((field) => {
+    field.addEventListener("focus", () => {
+      trackFocusEvent();
+    });
+  });
+
+  Object.values(fields).forEach((field) => {
+    field.addEventListener("input", () => {
+      trackTypeEvent();
+    });
+  });
+
   const form = document.querySelector("#pledge-form");
 
   form.addEventListener("submit", async (event) => {
@@ -157,16 +171,21 @@
 
       form.style.display = "none";
       document.querySelector("#pledge-form-thank-you").style.display = "block";
-      document
-        .querySelector("#submitted-tweet")
-        .setAttribute(
-          "href",
-          `https://twitter.com/intent/tweet?text=${encodeURI(shareQuote)}`
-        );
+      const tweetLink = document.querySelector("#submitted-tweet");
+      tweetLink.setAttribute(
+        "href",
+        `https://twitter.com/intent/tweet?text=${encodeURI(shareQuote)}`
+      );
+      tweetLink.addEventListener("click", (event) => {
+        trackShareEvent();
+      });
+
       showSubmittedModal();
+      trackSubmitEvent();
     } catch (error) {
       console.error(error);
       showSubmitErrorModal();
+      trackSubmitErrorEvent();
     }
   });
 })();
