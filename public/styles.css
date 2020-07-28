@@ -39,6 +39,20 @@ body {
   display: inline-block;
 }
 
+.menu {
+  padding: 15px var(--vertical-padding);
+  background: linear-gradient(144deg, rgb(240 244 255), #fff);
+}
+.menu a {
+  color: var(--blue);
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 19px;
+  margin-right: 26px;
+  text-transform: uppercase;
+}
+
 .cta-section {
   padding: var(--horizontal-padding) var(--vertical-padding);
   max-width: var(--max-width);
@@ -245,6 +259,62 @@ input.pledge-required.pledge-required {
     padding: 10px 5px;
     font-size: 14px;
     max-width: 200px;
+  }
+}
+
+.faq {
+  padding: var(--horizontal-padding) var(--vertical-padding);
+  color: var(--blue);
+  line-height: 1.6;
+  max-width: var(--max-width);
+}
+.faq-question {
+  padding-bottom: 20px;
+}
+.faq-question:last-child {
+  padding-bottom: 0;
+}
+
+.faq-section {
+  padding-bottom: var(--horizontal-padding);
+}
+.faq-section:last-child {
+  padding-bottom: 0;
+}
+
+.faq h3,
+.faq p,
+.faq ol {
+  font-size: 19px;
+}
+.faq h2,
+.faq h3 {
+  color: var(--red);
+}
+.faq h2 {
+  margin: 0 0 10px 0;
+}
+.faq h3 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 5px;
+}
+.faq p {
+  margin-top: 0;
+}
+.faq p:last-of-type {
+  margin-bottom: 0;
+}
+.faq ol {
+  margin-top: 0;
+}
+@media (max-width: 767px) {
+  .faq h2 {
+    font-size: 24px;
+  }
+  .faq p,
+  .faq ol {
+    font-size: 17px;
   }
 }
 

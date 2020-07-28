@@ -1,7 +1,12 @@
 {
   "hosting": {
     "public": "public",
-    "rewrites": []
+    "rewrites": [
+      {
+        "source": "/faq",
+        "destination": "/index.html"
+      }
+    ]
   },
   "firestore": {
     "rules": "firestore.rules",

@@ -30,131 +30,257 @@
         <span class="progress-logo" href="#home">Off to Vote</span>
       </div>
     </section>
-
-    <section class="cta-section" id="home">
-      <div class="cta-text">
-        <p>Voting is the action verb of democracy.</p>
-        <p>The right to cast a ballot was the dream of our founders.</p>
-        <p>
-          Generations of civil rights activists have fought and bled for it.
-        </p>
-        <p>But American voter turnout is consistently low.</p>
-        <p>We can do better. We must do better.</p>
-        <p class="cta-emphasized">Let’s start with taking time off to vote.</p>
-        <p>
-          This year, give your team the chance to make a difference. Give them
-          time off to vote.
-        </p>
-        <p><a href="#pledge">Sign the pledge.</a></p>
-      </div>
+    <section class="menu">
+      <a href="/">Home</a>
+      <a href="/faq">FAQ</a>
     </section>
-    <section class="gap"></section>
+    <main id="default-page">
+      <section class="cta-section" id="home">
+        <div class="cta-text">
+          <p>Voting is the action verb of democracy.</p>
+          <p>The right to cast a ballot was the dream of our founders.</p>
+          <p>
+            Generations of civil rights activists have fought and bled for it.
+          </p>
+          <p>But American voter turnout is consistently low.</p>
+          <p>We can do better. We must do better.</p>
+          <p class="cta-emphasized">
+            Let’s start with taking time off to vote.
+          </p>
+          <p>
+            This year, give your team the chance to make a difference. Give them
+            time off to vote.
+          </p>
+          <p><a href="#pledge">Sign the pledge.</a></p>
+        </div>
+      </section>
+      <section class="gap"></section>
 
-    <section class="pledge" id="pledge">
-      <div class="pledge-content-wrap">
-        <form id="pledge-form" class="pledge-form">
-          <div>
-            On behalf of
-          </div>
-          <div class="category-radios">
-            <label>
-              <input type="radio" name="category" value="Team" checked />
-              My team
-            </label>
-            <label>
-              <input type="radio" name="category" value="Individual" />
-              Myself
-            </label>
-          </div>
-          <div class="pledge-pledge">
-            I plan to give
-            <em class="pledge-em" team-pledge-shown>my team</em>
-            <em class="pledge-em" company-pledge-shown style="display: none;">
-              my company
-            </em>
-            <em
-              class="pledge-em"
-              individual-pledge-shown
-              style="display: none;"
-            >
-              myself
-            </em>
-            time off to vote on November 3rd, 2020.
-          </div>
-          <div>
-            <!-- Hidden with css, meant to catch crawlers automatically submitting any form they find -->
-            <input
-              id="form-required"
-              class="pledge-required"
-              type="text"
-              placeholder="Hi"
-            />
-            <label class="pledge-row">
-              Name
-              <input type="text" id="form-name" />
-            </label>
-            <label class="pledge-row">
-              Email
-              <input id="form-email" class="pledge-email" type="email" />
-            </label>
-            <label class="pledge-row">
-              Company
-              <input id="form-company" class="pledge-company" type="text" />
-            </label>
-            <label class="pledge-row" team-pledge-shown restore-display="grid">
-              Team
-              <input id="form-team" class="pledge-team" type="text" />
-            </label>
-            <label
-              class="pledge-row"
-              team-pledge-shown
-              company-pledge-shown
-              restore-display="grid"
-            >
-              Team Size
+      <section class="pledge" id="pledge">
+        <div class="pledge-content-wrap">
+          <form id="pledge-form" class="pledge-form">
+            <div>
+              On behalf of
+            </div>
+            <div class="category-radios">
+              <label>
+                <input type="radio" name="category" value="Team" checked />
+                My team
+              </label>
+              <label>
+                <input type="radio" name="category" value="Individual" />
+                Myself
+              </label>
+            </div>
+            <div class="pledge-pledge">
+              I plan to give
+              <em class="pledge-em" team-pledge-shown>my team</em>
+              <em class="pledge-em" company-pledge-shown style="display: none;">
+                my company
+              </em>
+              <em
+                class="pledge-em"
+                individual-pledge-shown
+                style="display: none;"
+              >
+                myself
+              </em>
+              time off to vote on November 3rd, 2020.
+            </div>
+            <div>
+              <!-- Hidden with css, meant to catch crawlers automatically submitting any form they find -->
               <input
-                id="form-count"
-                class="pledge-number"
-                type="number"
-                pattern="\d*"
-                min="1"
+                id="form-required"
+                class="pledge-required"
+                type="text"
+                placeholder="Hi"
               />
-            </label>
-            <button id="form-submit" class="pledge-submit" type="submit">
-              Submit my Pledge
-            </button>
-          </div>
-        </form>
-        <p
-          id="pledge-form-thank-you"
-          class="pledge-thank-you"
-          style="display: none;"
-        >
-          Thank you!
-        </p>
-      </div>
-    </section>
+              <label class="pledge-row">
+                Name
+                <input type="text" id="form-name" />
+              </label>
+              <label class="pledge-row">
+                Email
+                <input id="form-email" class="pledge-email" type="email" />
+              </label>
+              <label class="pledge-row">
+                Company
+                <input id="form-company" class="pledge-company" type="text" />
+              </label>
+              <label
+                class="pledge-row"
+                team-pledge-shown
+                restore-display="grid"
+              >
+                Team
+                <input id="form-team" class="pledge-team" type="text" />
+              </label>
+              <label
+                class="pledge-row"
+                team-pledge-shown
+                company-pledge-shown
+                restore-display="grid"
+              >
+                Team Size
+                <input
+                  id="form-count"
+                  class="pledge-number"
+                  type="number"
+                  pattern="\d*"
+                  min="1"
+                />
+              </label>
+              <button id="form-submit" class="pledge-submit" type="submit">
+                Submit my Pledge
+              </button>
+            </div>
+          </form>
+          <p
+            id="pledge-form-thank-you"
+            class="pledge-thank-you"
+            style="display: none;"
+          >
+            Thank you!
+          </p>
+        </div>
+      </section>
 
-    <section class="table-section" id="honor-roll">
-      <div class="table-content-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>#</th>
-              <th>Name</th>
-              <th>Company</th>
-              <th>Team</th>
-            </tr>
-          </thead>
-          <tbody id="table-body">
-            <tr>
-              <td>Loading...</td>
-            </tr>
-          </tbody>
-        </table>
+      <section class="table-section" id="honor-roll">
+        <div class="table-content-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>#</th>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Team</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <tr>
+                <td>Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <main id="faq-page" class="faq" style="display: none;">
+      <div class="faq-section">
+        <div class="faq-question">
+          <h3>Why is this important?</h3>
+          <p>
+            The shrinking of polling volunteers fearing COVID-19, combined with
+            the closing of polling stations, has led to huge lines of people
+            waiting to vote in recent elections. It is not ok. We believe no one
+            should have to give up on their voting rights because of their job.
+            We believe employers should support their employees’ voting rights
+            and give them the flexibility to stand in line to cast their ballot.
+            We believe every vote counts.
+          </p>
+        </div>
+        <div class="faq-question">
+          <h3>Isn’t this already a law?</h3>
+          <p>
+            Giving employees time off to cast a ballot is not a federal
+            obligation for employers. Some states, including Tennessee and
+            Alaska, mandate employers to give employees (paid) time to vote.
+            Others, including Connecticut and Idaho, have zeo voter-leave laws.
+            Some, like Oklahoma and New York, have exceptions that can make it
+            difficult for employees to stand up for their rights. Confusing,
+            right? Here’s a 2018 article that details the laws, state by state.
+          </p>
+        </div>
+
+        <div class="faq-question">
+          <h3>Shouldn’t Election Day be a Saturday? Or a National Holiday?</h3>
+          <p>
+            We hear you. But it’s not going to happen before November 3, 2020.
+            So in the meantime, thanks for considering taking the offtovote.org
+            pledge.
+          </p>
+        </div>
       </div>
-    </section>
+      <div class="faq-section">
+        <h2>
+          For individuals
+        </h2>
+
+        <div class="faq-question">
+          <h3>
+            I am considering taking the pledge as an individual. What does that
+            entail?
+          </h3>
+          <p>
+            If you pledge as an individual, we ask that you dedicate 4 hours of
+            your day on November 3, 2020, to make sure you have enough time to
+            cast your ballot. It shouldn’t have to take that long and we hope it
+            won’t.
+          </p>
+        </div>
+        <div class="faq-question">
+          <h3>
+            I took the pledge as an individual. Now what?
+          </h3>
+          <ol>
+            <li>
+              Ask your employer to step up its game. By now, you should have
+              received a confirmation email from us. Go ahead and forward it to
+              your manager and ask if your company will consider taking the
+              pledge on behalf of all your colleagues.
+            </li>
+            <li>
+              Email your friends, post on your social media account(s) and shout
+              it from the rooftops: we need more eligible voters to follow your
+              lead.
+            </li>
+            <li>
+              Thank you for helping us boost voter turnout. See you at the
+              polling station!
+            </li>
+          </ol>
+        </div>
+      </div>
+      <div class="faq-section">
+        <h2>For employers and team leads</h2>
+        <div class="faq-question">
+          <h3>
+            As an employer, I am considering taking the pledge. What does that
+            entail?
+          </h3>
+          <p>
+            We ask that you give all your employees the option to take 4 hours
+            of paid time off on November 3, 2020. We also ask that you don’t
+            deduce these 4 hours from their PTO or any other leave your company
+            already offers. We ask that you don’t ask for proof of voting, as
+            some of your employees may want to use this time to help others get
+            to the polls safely. It’s the right thing to do.
+          </p>
+        </div>
+        <div class="faq-question">
+          <h3>I took the pledge as an employer. Now what?</h3>
+          <ol>
+            <li>
+              Tell your employees what you’ve committed to so they know they
+              have your support in casting their ballot. To make this as smooth
+              as possible, we recommend sharing the news with your employees by
+              October 27, 2020 (the Tuesday prior to Election Day) so your team
+              can get organized, whether that means staggering shifts or “out of
+              office” emails.
+            </li>
+            <li>
+              Email your friends, post on your company’s social media and shout
+              it from the rooftops: we need more companies to follow your lead.
+            </li>
+            <li>
+              Thank you for helping us boost voter turnout. See you at the
+              polling station!
+            </li>
+          </ol>
+        </div>
+      </div>
+    </main>
 
     <footer class="footer">
       <div class="footer-content">
@@ -269,5 +395,17 @@
     <script src="modals.js"></script>
     <script src="table.js"></script>
     <script src="pledge-form.js"></script>
+    <script>
+      // Page content switcher
+      (() => {
+        const defaultPage = document.querySelector("#default-page");
+        const faqPage = document.querySelector("#faq-page");
+        const path = document.location.pathname;
+        if (path === "/faq") {
+          defaultPage.style.display = "none";
+          faqPage.style.display = "block";
+        }
+      })();
+    </script>
   </body>
 </html>
