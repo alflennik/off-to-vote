@@ -270,7 +270,11 @@ input.pledge-required.pledge-required {
 }
 .faq-contents {
 }
-.faq-contents a {color: var(--red);border-bottom: 1px solid var(--red);text-transform: none;}
+.faq-contents a {
+  color: var(--red);
+  border-bottom: 1px solid var(--red);
+  text-decoration: none;
+}
 .faq-question {
   padding-bottom: 20px;
 }
