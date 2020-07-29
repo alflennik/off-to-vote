@@ -268,6 +268,9 @@ input.pledge-required.pledge-required {
   line-height: 1.6;
   max-width: var(--max-width);
 }
+.faq-contents {
+}
+.faq-contents a {color: var(--red);border-bottom: 1px solid var(--red);text-transform: none;}
 .faq-question {
   padding-bottom: 20px;
 }
